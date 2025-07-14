@@ -8,6 +8,7 @@ import_scan_to_defectdojo() {
   local ENGAGEMENT_NAME="$4"
   local SCAN_FILE="$5"
   local SCAN_TYPE="$6"
+  local SERVICE="$7"
 
   # Check if the scan file exists
   if [ ! -f "$SCAN_FILE" ]; then
@@ -27,15 +28,16 @@ import_scan_to_defectdojo() {
     -F "scan_type=$SCAN_TYPE" \
     -F "product_name=$PRODUCT_NAME" \
     -F "engagement_name=$ENGAGEMENT_NAME" \
+    -F "service=$SERVICE" \
     -F "file=@$SCAN_FILE" \
-    -F "close_old_findings=true" \
+    -F "close_old_findings=false" \
     -F "push_to_jira=false"
 
   if [ $? -eq 0 ]; then
-    echo "Imported $SCAN_FILE successfully."
+    echo "Imported $SCAN_FILE (service: $SERVICE) successfully."
     return 0
   else
-    echo "Failed to import $SCAN_FILE."
+    echo "Failed to import $SCAN_FILE (service: $SERVICE)."
     return 1
   fi
 }
@@ -57,12 +59,14 @@ fi
 imported=0
 failed=0
 
-# Process Trivy files
+# Process Trivy files first
 for scan_file in "$SCAN_FOLDER"/*-trivy.json; do
   if [ -f "$scan_file" ]; then
-    echo "Processing Trivy scan: $scan_file..."
+    # Extract service name (e.g., 'a' from 'svc-a-1.0.0-199-trivy.json')
+    service=$(basename "$scan_file" | sed -E 's/svc-([^-]+)-.+-.+\.json/\1/')
+    echo "Processing Trivy scan: $scan_file (service: $service)..."
     import_scan_to_defectdojo "$DEFECTDOJO_URL" "$API_TOKEN" "$PRODUCT_NAME" \
-      "$ENGAGEMENT_NAME" "$scan_file" "Trivy Scan"
+      "$ENGAGEMENT_NAME" "$scan_file" "Trivy Scan" "$service"
     if [ $? -eq 0 ]; then
       ((imported++))
     else
@@ -71,12 +75,14 @@ for scan_file in "$SCAN_FOLDER"/*-trivy.json; do
   fi
 done
 
-# Process Grype files
+# Process Grype files next
 for scan_file in "$SCAN_FOLDER"/*-grype.json; do
   if [ -f "$scan_file" ]; then
-    echo "Processing Grype scan: $scan_file..."
+    # Extract service name (e.g., 'a' from 'svc-a-1.0.0-199-grype.json')
+    service=$(basename "$scan_file" | sed -E 's/svc-([^-]+)-.+-.+\.json/\1/')
+    echo "Processing Grype scan: $scan_file (service: $service)..."
     import_scan_to_defectdojo "$DEFECTDOJO_URL" "$API_TOKEN" "$PRODUCT_NAME" \
-      "$ENGAGEMENT_NAME" "$scan_file" "Anchore Grype"
+      "$ENGAGEMENT_NAME" "$scan_file" "Anchore Grype" "$service"
     if [ $? -eq 0 ]; then
       ((imported++))
     else
