@@ -18,7 +18,7 @@ import_scan_to_defectdojo() {
 
   # Send POST request to import scan
   curl -s --fail \
-    -X POST "$DEFECTDOJO_URL/api/v2/import-scan/" \
+    -X POST "$DEFECTDOJO_URL/api/v2/import-scan/" \ # IMPORTANT: CHANGE TO 'reimport' ENDPOINT AFTER THE FIRST IMPORT
     -H "Authorization: Token $API_TOKEN" \
     -H "Content-Type: multipart/form-data" \
     -F "scan_date=$(date +%Y-%m-%d)" \
@@ -43,11 +43,11 @@ import_scan_to_defectdojo() {
 }
 
 # Configuration
-DEFECTDOJO_URL="https://your-defectdojo-instance.com"  # Replace with your DefectDojo URL
-API_TOKEN="your_api_token_here"                       # Replace with your API token
-PRODUCT_NAME="Your Product Name"                     # Replace with your product name
-ENGAGEMENT_NAME="Your Engagement Name"               # Replace with your engagement name
-SCAN_FOLDER="va-scan"                               # Folder with scan files
+DEFECTDOJO_URL="https://demo.defectdojo.org/"  # Replace with your DefectDojo URL
+API_TOKEN=""                       # Replace with your API token
+PRODUCT_NAME="My Product"                     # Replace with your product name
+ENGAGEMENT_NAME="My Product CI/CD Engagement"               # Replace with your engagement name
+SCAN_FOLDER="va-scans"                               # Folder with scan files
 
 # Check if folder exists
 if [ ! -d "$SCAN_FOLDER" ]; then
@@ -62,8 +62,8 @@ failed=0
 # Process Trivy files first
 for scan_file in "$SCAN_FOLDER"/*-trivy.json; do
   if [ -f "$scan_file" ]; then
-    # Extract service name (e.g., 'a' from 'svc-a-1.0.0-199-trivy.json')
-    service=$(basename "$scan_file" | sed -E 's/svc-([^-]+)-.+-.+\.json/\1/')
+    # Extract service name (e.g., 'svc-a' from 'svc-a-1.0.0-199-trivy.json')
+    service=$(basename "$scan_file" | sed -E 's/(svc-[^-]+)-.+-.+\.json/\1/')
     echo "Processing Trivy scan: $scan_file (service: $service)..."
     import_scan_to_defectdojo "$DEFECTDOJO_URL" "$API_TOKEN" "$PRODUCT_NAME" \
       "$ENGAGEMENT_NAME" "$scan_file" "Trivy Scan" "$service"
@@ -78,8 +78,8 @@ done
 # Process Grype files next
 for scan_file in "$SCAN_FOLDER"/*-grype.json; do
   if [ -f "$scan_file" ]; then
-    # Extract service name (e.g., 'a' from 'svc-a-1.0.0-199-grype.json')
-    service=$(basename "$scan_file" | sed -E 's/svc-([^-]+)-.+-.+\.json/\1/')
+    # Extract service name (e.g., 'svc-a' from 'svc-a-1.0.0-199-grype.json')
+    service=$(basename "$scan_file" | sed -E 's/(svc-[^-]+)-.+-.+\.json/\1/')
     echo "Processing Grype scan: $scan_file (service: $service)..."
     import_scan_to_defectdojo "$DEFECTDOJO_URL" "$API_TOKEN" "$PRODUCT_NAME" \
       "$ENGAGEMENT_NAME" "$scan_file" "Anchore Grype" "$service"
