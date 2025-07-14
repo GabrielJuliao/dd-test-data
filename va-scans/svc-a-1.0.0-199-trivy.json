@@ -1,0 +1,186 @@
+{
+  "SchemaVersion": 2,
+  "CreatedAt": "2025-07-14T20:30:06.322142-03:00",
+  "ArtifactName": "svc-a:1.0.0",
+  "ArtifactType": "container_image",
+  "Metadata": {
+    "Size": 131110912,
+    "OS": {
+      "Family": "alpine",
+      "Name": "3.10.9",
+      "EOSL": true
+    },
+    "ImageID": "sha256:c6688bb967383c461e9ba5011f38a8f2b5693100455678583a83c39cf7defca4",
+    "DiffIDs": [
+      "sha256:e484d53633e7e5ebaabbe277838af1f26c388cbcebfa32e29fae72dd4086d54d",
+      "sha256:029fee4e36e340c11b2b5855d4f4bee0572456fd3ff1f1d3319260fe3d4e824c",
+      "sha256:38780e879632a4fbbe23dee66b6337333102a0d09e2e446f9a1efdd8303ba9dc",
+      "sha256:e98a5114407c7ebf430792b1a05ab756f20f1f1f36af7092717ddbf867c7fcea"
+    ],
+    "RepoTags": [
+      "svc-a:1.0.0"
+    ],
+    "RepoDigests": [
+      "svc-a@sha256:c6688bb967383c461e9ba5011f38a8f2b5693100455678583a83c39cf7defca4"
+    ],
+    "ImageConfig": {
+      "architecture": "arm64",
+      "created": "2025-07-14T22:47:38.07026405Z",
+      "history": [
+        {
+          "created": "2021-04-14T18:43:16Z",
+          "created_by": "/bin/sh -c #(nop) ADD file:85a5071af4733240679a3799298092cb671cae007156a367219b6edf6cfc6377 in / "
+        },
+        {
+          "created": "2021-04-14T18:43:17Z",
+          "created_by": "/bin/sh -c #(nop)  CMD [\"/bin/sh\"]",
+          "empty_layer": true
+        },
+        {
+          "created": "2025-07-14T22:46:17Z",
+          "created_by": "RUN /bin/sh -c apk update \u0026\u0026     apk add --no-cache openjdk8-jre \u0026\u0026     rm -rf /var/cache/apk/* # buildkit",
+          "comment": "buildkit.dockerfile.v0"
+        },
+        {
+          "created": "2025-07-14T22:46:17Z",
+          "created_by": "WORKDIR /app",
+          "comment": "buildkit.dockerfile.v0"
+        },
+        {
+          "created": "2025-07-14T22:47:38Z",
+          "created_by": "COPY /app/target/*.jar app.jar # buildkit",
+          "comment": "buildkit.dockerfile.v0"
+        },
+        {
+          "created": "2025-07-14T22:47:38Z",
+          "created_by": "EXPOSE map[8080/tcp:{}]",
+          "comment": "buildkit.dockerfile.v0",
+          "empty_layer": true
+        },
+        {
+          "created": "2025-07-14T22:47:38Z",
+          "created_by": "ENTRYPOINT [\"java\" \"-jar\" \"app.jar\"]",
+          "comment": "buildkit.dockerfile.v0",
+          "empty_layer": true
+        }
+      ],
+      "os": "linux",
+      "rootfs": {
+        "type": "layers",
+        "diff_ids": [
+          "sha256:e484d53633e7e5ebaabbe277838af1f26c388cbcebfa32e29fae72dd4086d54d",
+          "sha256:029fee4e36e340c11b2b5855d4f4bee0572456fd3ff1f1d3319260fe3d4e824c",
+          "sha256:38780e879632a4fbbe23dee66b6337333102a0d09e2e446f9a1efdd8303ba9dc",
+          "sha256:e98a5114407c7ebf430792b1a05ab756f20f1f1f36af7092717ddbf867c7fcea"
+        ]
+      },
+      "config": {
+        "Entrypoint": [
+          "java",
+          "-jar",
+          "app.jar"
+        ],
+        "Env": [
+          "PATH=/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin"
+        ],
+        "WorkingDir": "/app",
+        "ExposedPorts": {
+          "8080/tcp": {}
+        }
+      }
+    },
+    "Layers": [
+      {
+        "Size": 5604352,
+        "Digest": "sha256:26d14edc4f17638cda363ea80b29c55e83058fc0dff1129b38ea3e8231217f7d",
+        "DiffID": "sha256:e484d53633e7e5ebaabbe277838af1f26c388cbcebfa32e29fae72dd4086d54d"
+      },
+      {
+        "Size": 101003776,
+        "Digest": "sha256:e30233369a5faae8d385d2e167cb9f237762d9187398c0a2537471e12cc4d5c3",
+        "DiffID": "sha256:029fee4e36e340c11b2b5855d4f4bee0572456fd3ff1f1d3319260fe3d4e824c"
+      },
+      {
+        "Size": 1536,
+        "Digest": "sha256:fcd269636a6b2912076463b576d489e783fc57e18565381c633f1f7802006b3f",
+        "DiffID": "sha256:38780e879632a4fbbe23dee66b6337333102a0d09e2e446f9a1efdd8303ba9dc"
+      },
+      {
+        "Size": 24501248,
+        "Digest": "sha256:9804d50c9739f48a1a2c1216595c6f5c6494cc1c0d50099374396edc19d98b5a",
+        "DiffID": "sha256:e98a5114407c7ebf430792b1a05ab756f20f1f1f36af7092717ddbf867c7fcea"
+      }
+    ]
+  },
+  "Results": [
+    {
+      "Target": "svc-a:1.0.0 (alpine 3.10.9)",
+      "Class": "os-pkgs",
+      "Type": "alpine",
+      "Vulnerabilities": [
+        {
+          "VulnerabilityID": "CVE-2021-36159",
+          "PkgID": "apk-tools@2.10.6-r0",
+          "PkgName": "apk-tools",
+          "PkgIdentifier": {
+            "PURL": "pkg:apk/alpine/apk-tools@2.10.6-r0?arch=aarch64\u0026distro=3.10.9",
+            "UID": "524c7397b4e6d4d7"
+          },
+          "InstalledVersion": "2.10.6-r0",
+          "FixedVersion": "2.10.7-r0",
+          "Status": "fixed",
+          "Layer": {
+            "Digest": "sha256:26d14edc4f17638cda363ea80b29c55e83058fc0dff1129b38ea3e8231217f7d",
+            "DiffID": "sha256:e484d53633e7e5ebaabbe277838af1f26c388cbcebfa32e29fae72dd4086d54d"
+          },
+          "SeveritySource": "nvd",
+          "PrimaryURL": "https://avd.aquasec.com/nvd/cve-2021-36159",
+          "DataSource": {
+            "ID": "alpine",
+            "Name": "Alpine Secdb",
+            "URL": "https://secdb.alpinelinux.org/"
+          },
+          "Title": "libfetch: an out of boundary read while libfetch uses strtol to parse the relevant numbers into address bytes leads to information leak or crash",
+          "Description": "libfetch before 2021-07-26, as used in apk-tools, xbps, and other products, mishandles numeric strings for the FTP and HTTP protocols. The FTP passive mode implementation allows an out-of-bounds read because strtol is used to parse the relevant numbers into address bytes. It does not check if the line ends prematurely. If it does, the for-loop condition checks for the '\\0' terminator one byte too late.",
+          "Severity": "CRITICAL",
+          "CweIDs": [
+            "CWE-125"
+          ],
+          "VendorSeverity": {
+            "nvd": 4,
+            "redhat": 3
+          },
+          "CVSS": {
+            "nvd": {
+              "V2Vector": "AV:N/AC:L/Au:N/C:P/I:N/A:P",
+              "V3Vector": "CVSS:3.1/AV:N/AC:L/PR:N/UI:N/S:U/C:H/I:N/A:H",
+              "V2Score": 6.4,
+              "V3Score": 9.1
+            },
+            "redhat": {
+              "V3Vector": "CVSS:3.1/AV:N/AC:L/PR:N/UI:N/S:U/C:H/I:N/A:H",
+              "V3Score": 9.1
+            }
+          },
+          "References": [
+            "https://access.redhat.com/security/cve/CVE-2021-36159",
+            "https://github.com/freebsd/freebsd-src/commits/main/lib/libfetch",
+            "https://gitlab.alpinelinux.org/alpine/apk-tools/-/issues/10749",
+            "https://lists.apache.org/thread.html/r61db8e7dcb56dc000a5387a88f7a473bacec5ee01b9ff3f55308aacc%40%3Cdev.kafka.apache.org%3E",
+            "https://lists.apache.org/thread.html/r61db8e7dcb56dc000a5387a88f7a473bacec5ee01b9ff3f55308aacc%40%3Cusers.kafka.apache.org%3E",
+            "https://lists.apache.org/thread.html/rbf4ce74b0d1fa9810dec50ba3ace0caeea677af7c27a97111c06ccb7%40%3Cdev.kafka.apache.org%3E",
+            "https://lists.apache.org/thread.html/rbf4ce74b0d1fa9810dec50ba3ace0caeea677af7c27a97111c06ccb7%40%3Cusers.kafka.apache.org%3E",
+            "https://www.cve.org/CVERecord?id=CVE-2021-36159"
+          ],
+          "PublishedDate": "2021-08-03T14:15:08.233Z",
+          "LastModifiedDate": "2024-11-21T06:13:13.57Z"
+        }
+      ]
+    },
+    {
+      "Target": "Java",
+      "Class": "lang-pkgs",
+      "Type": "jar"
+    }
+  ]
+}

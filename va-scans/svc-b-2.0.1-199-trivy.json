@@ -1,0 +1,2129 @@
+{
+  "SchemaVersion": 2,
+  "CreatedAt": "2025-07-14T20:30:06.424128-03:00",
+  "ArtifactName": "svc-b:2.0.1",
+  "ArtifactType": "container_image",
+  "Metadata": {
+    "Size": 129414656,
+    "OS": {
+      "Family": "alpine",
+      "Name": "3.10.9",
+      "EOSL": true
+    },
+    "ImageID": "sha256:c05ced577f1f95ae798327cbfd22b14da143e948cdbc8d50c2a32a75d776c1a3",
+    "DiffIDs": [
+      "sha256:e484d53633e7e5ebaabbe277838af1f26c388cbcebfa32e29fae72dd4086d54d",
+      "sha256:029fee4e36e340c11b2b5855d4f4bee0572456fd3ff1f1d3319260fe3d4e824c",
+      "sha256:38780e879632a4fbbe23dee66b6337333102a0d09e2e446f9a1efdd8303ba9dc",
+      "sha256:817b93f8b2201f0c845e4315bb834167d2a546c11b121bbcf7a5da2bd2628b4e"
+    ],
+    "RepoTags": [
+      "svc-b:2.0.1"
+    ],
+    "RepoDigests": [
+      "svc-b@sha256:c05ced577f1f95ae798327cbfd22b14da143e948cdbc8d50c2a32a75d776c1a3"
+    ],
+    "ImageConfig": {
+      "architecture": "arm64",
+      "created": "2025-07-14T22:52:26.507010169Z",
+      "history": [
+        {
+          "created": "2021-04-14T18:43:16Z",
+          "created_by": "/bin/sh -c #(nop) ADD file:85a5071af4733240679a3799298092cb671cae007156a367219b6edf6cfc6377 in / "
+        },
+        {
+          "created": "2021-04-14T18:43:17Z",
+          "created_by": "/bin/sh -c #(nop)  CMD [\"/bin/sh\"]",
+          "empty_layer": true
+        },
+        {
+          "created": "2025-07-14T22:46:17Z",
+          "created_by": "RUN /bin/sh -c apk update \u0026\u0026     apk add --no-cache openjdk8-jre \u0026\u0026     rm -rf /var/cache/apk/* # buildkit",
+          "comment": "buildkit.dockerfile.v0"
+        },
+        {
+          "created": "2025-07-14T22:46:17Z",
+          "created_by": "WORKDIR /app",
+          "comment": "buildkit.dockerfile.v0"
+        },
+        {
+          "created": "2025-07-14T22:52:26Z",
+          "created_by": "COPY /app/target/*.jar app.jar # buildkit",
+          "comment": "buildkit.dockerfile.v0"
+        },
+        {
+          "created": "2025-07-14T22:52:26Z",
+          "created_by": "EXPOSE map[8080/tcp:{}]",
+          "comment": "buildkit.dockerfile.v0",
+          "empty_layer": true
+        },
+        {
+          "created": "2025-07-14T22:52:26Z",
+          "created_by": "ENTRYPOINT [\"java\" \"-jar\" \"app.jar\"]",
+          "comment": "buildkit.dockerfile.v0",
+          "empty_layer": true
+        }
+      ],
+      "os": "linux",
+      "rootfs": {
+        "type": "layers",
+        "diff_ids": [
+          "sha256:e484d53633e7e5ebaabbe277838af1f26c388cbcebfa32e29fae72dd4086d54d",
+          "sha256:029fee4e36e340c11b2b5855d4f4bee0572456fd3ff1f1d3319260fe3d4e824c",
+          "sha256:38780e879632a4fbbe23dee66b6337333102a0d09e2e446f9a1efdd8303ba9dc",
+          "sha256:817b93f8b2201f0c845e4315bb834167d2a546c11b121bbcf7a5da2bd2628b4e"
+        ]
+      },
+      "config": {
+        "Entrypoint": [
+          "java",
+          "-jar",
+          "app.jar"
+        ],
+        "Env": [
+          "PATH=/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin"
+        ],
+        "WorkingDir": "/app",
+        "ExposedPorts": {
+          "8080/tcp": {}
+        }
+      }
+    },
+    "Layers": [
+      {
+        "Size": 5604352,
+        "Digest": "sha256:26d14edc4f17638cda363ea80b29c55e83058fc0dff1129b38ea3e8231217f7d",
+        "DiffID": "sha256:e484d53633e7e5ebaabbe277838af1f26c388cbcebfa32e29fae72dd4086d54d"
+      },
+      {
+        "Size": 101003776,
+        "Digest": "sha256:e30233369a5faae8d385d2e167cb9f237762d9187398c0a2537471e12cc4d5c3",
+        "DiffID": "sha256:029fee4e36e340c11b2b5855d4f4bee0572456fd3ff1f1d3319260fe3d4e824c"
+      },
+      {
+        "Size": 1536,
+        "Digest": "sha256:fcd269636a6b2912076463b576d489e783fc57e18565381c633f1f7802006b3f",
+        "DiffID": "sha256:38780e879632a4fbbe23dee66b6337333102a0d09e2e446f9a1efdd8303ba9dc"
+      },
+      {
+        "Size": 22804992,
+        "Digest": "sha256:a5769a9b415d3284f6e473ee3096dda36e66e871f347eb93b23160262c835f44",
+        "DiffID": "sha256:817b93f8b2201f0c845e4315bb834167d2a546c11b121bbcf7a5da2bd2628b4e"
+      }
+    ]
+  },
+  "Results": [
+    {
+      "Target": "svc-b:2.0.1 (alpine 3.10.9)",
+      "Class": "os-pkgs",
+      "Type": "alpine",
+      "Vulnerabilities": [
+        {
+          "VulnerabilityID": "CVE-2021-36159",
+          "PkgID": "apk-tools@2.10.6-r0",
+          "PkgName": "apk-tools",
+          "PkgIdentifier": {
+            "PURL": "pkg:apk/alpine/apk-tools@2.10.6-r0?arch=aarch64\u0026distro=3.10.9",
+            "UID": "524c7397b4e6d4d7"
+          },
+          "InstalledVersion": "2.10.6-r0",
+          "FixedVersion": "2.10.7-r0",
+          "Status": "fixed",
+          "Layer": {
+            "Digest": "sha256:26d14edc4f17638cda363ea80b29c55e83058fc0dff1129b38ea3e8231217f7d",
+            "DiffID": "sha256:e484d53633e7e5ebaabbe277838af1f26c388cbcebfa32e29fae72dd4086d54d"
+          },
+          "SeveritySource": "nvd",
+          "PrimaryURL": "https://avd.aquasec.com/nvd/cve-2021-36159",
+          "DataSource": {
+            "ID": "alpine",
+            "Name": "Alpine Secdb",
+            "URL": "https://secdb.alpinelinux.org/"
+          },
+          "Title": "libfetch: an out of boundary read while libfetch uses strtol to parse the relevant numbers into address bytes leads to information leak or crash",
+          "Description": "libfetch before 2021-07-26, as used in apk-tools, xbps, and other products, mishandles numeric strings for the FTP and HTTP protocols. The FTP passive mode implementation allows an out-of-bounds read because strtol is used to parse the relevant numbers into address bytes. It does not check if the line ends prematurely. If it does, the for-loop condition checks for the '\\0' terminator one byte too late.",
+          "Severity": "CRITICAL",
+          "CweIDs": [
+            "CWE-125"
+          ],
+          "VendorSeverity": {
+            "nvd": 4,
+            "redhat": 3
+          },
+          "CVSS": {
+            "nvd": {
+              "V2Vector": "AV:N/AC:L/Au:N/C:P/I:N/A:P",
+              "V3Vector": "CVSS:3.1/AV:N/AC:L/PR:N/UI:N/S:U/C:H/I:N/A:H",
+              "V2Score": 6.4,
+              "V3Score": 9.1
+            },
+            "redhat": {
+              "V3Vector": "CVSS:3.1/AV:N/AC:L/PR:N/UI:N/S:U/C:H/I:N/A:H",
+              "V3Score": 9.1
+            }
+          },
+          "References": [
+            "https://access.redhat.com/security/cve/CVE-2021-36159",
+            "https://github.com/freebsd/freebsd-src/commits/main/lib/libfetch",
+            "https://gitlab.alpinelinux.org/alpine/apk-tools/-/issues/10749",
+            "https://lists.apache.org/thread.html/r61db8e7dcb56dc000a5387a88f7a473bacec5ee01b9ff3f55308aacc%40%3Cdev.kafka.apache.org%3E",
+            "https://lists.apache.org/thread.html/r61db8e7dcb56dc000a5387a88f7a473bacec5ee01b9ff3f55308aacc%40%3Cusers.kafka.apache.org%3E",
+            "https://lists.apache.org/thread.html/rbf4ce74b0d1fa9810dec50ba3ace0caeea677af7c27a97111c06ccb7%40%3Cdev.kafka.apache.org%3E",
+            "https://lists.apache.org/thread.html/rbf4ce74b0d1fa9810dec50ba3ace0caeea677af7c27a97111c06ccb7%40%3Cusers.kafka.apache.org%3E",
+            "https://www.cve.org/CVERecord?id=CVE-2021-36159"
+          ],
+          "PublishedDate": "2021-08-03T14:15:08.233Z",
+          "LastModifiedDate": "2024-11-21T06:13:13.57Z"
+        }
+      ]
+    },
+    {
+      "Target": "Java",
+      "Class": "lang-pkgs",
+      "Type": "jar",
+      "Vulnerabilities": [
+        {
+          "VulnerabilityID": "CVE-2023-6378",
+          "PkgName": "ch.qos.logback:logback-classic",
+          "PkgPath": "app/app.jar/BOOT-INF/lib/logback-classic-1.4.11.jar",
+          "PkgIdentifier": {
+            "PURL": "pkg:maven/ch.qos.logback/logback-classic@1.4.11",
+            "UID": "304641bd68b135f0"
+          },
+          "InstalledVersion": "1.4.11",
+          "FixedVersion": "1.3.12, 1.4.12, 1.2.13",
+          "Status": "fixed",
+          "Layer": {
+            "Digest": "sha256:a5769a9b415d3284f6e473ee3096dda36e66e871f347eb93b23160262c835f44",
+            "DiffID": "sha256:817b93f8b2201f0c845e4315bb834167d2a546c11b121bbcf7a5da2bd2628b4e"
+          },
+          "SeveritySource": "ghsa",
+          "PrimaryURL": "https://avd.aquasec.com/nvd/cve-2023-6378",
+          "DataSource": {
+            "ID": "ghsa",
+            "Name": "GitHub Security Advisory Maven",
+            "URL": "https://github.com/advisories?query=type%3Areviewed+ecosystem%3Amaven"
+          },
+          "Title": "logback: serialization vulnerability in logback receiver",
+          "Description": "A serialization vulnerability in logback receiver component part of \nlogback version 1.4.11 allows an attacker to mount a Denial-Of-Service \nattack by sending poisoned data.\n\n",
+          "Severity": "HIGH",
+          "CweIDs": [
+            "CWE-502"
+          ],
+          "VendorSeverity": {
+            "ghsa": 3,
+            "nvd": 3,
+            "redhat": 2,
+            "ubuntu": 2
+          },
+          "CVSS": {
+            "ghsa": {
+              "V3Vector": "CVSS:3.1/AV:L/AC:L/PR:N/UI:N/S:C/C:N/I:N/A:H",
+              "V3Score": 7.1
+            },
+            "nvd": {
+              "V3Vector": "CVSS:3.1/AV:N/AC:L/PR:N/UI:N/S:U/C:N/I:N/A:H",
+              "V3Score": 7.5
+            },
+            "redhat": {
+              "V3Vector": "CVSS:3.1/AV:N/AC:L/PR:N/UI:N/S:U/C:N/I:N/A:H",
+              "V3Score": 7.5
+            }
+          },
+          "References": [
+            "https://access.redhat.com/security/cve/CVE-2023-6378",
+            "https://github.com/qos-ch/logback",
+            "https://github.com/qos-ch/logback/commit/9c782b45be4abdafb7e17481e24e7354c2acd1eb",
+            "https://github.com/qos-ch/logback/commit/b8eac23a9de9e05fb6d51160b3f46acd91af9731",
+            "https://github.com/qos-ch/logback/commit/bb095154be011267b64e37a1d401546e7cc2b7c3",
+            "https://github.com/qos-ch/logback/issues/745#issuecomment-1836227158",
+            "https://logback.qos.ch/manual/receivers.html",
+            "https://logback.qos.ch/news.html#1.2.13",
+            "https://logback.qos.ch/news.html#1.3.12",
+            "https://nvd.nist.gov/vuln/detail/CVE-2023-6378",
+            "https://security.netapp.com/advisory/ntap-20241129-0012",
+            "https://security.netapp.com/advisory/ntap-20241129-0012/",
+            "https://ubuntu.com/security/notices/USN-7616-1",
+            "https://www.cve.org/CVERecord?id=CVE-2023-6378"
+          ],
+          "PublishedDate": "2023-11-29T12:15:07.543Z",
+          "LastModifiedDate": "2024-11-29T12:15:06.597Z"
+        },
+        {
+          "VulnerabilityID": "CVE-2023-6378",
+          "PkgName": "ch.qos.logback:logback-core",
+          "PkgPath": "app/app.jar/BOOT-INF/lib/logback-core-1.4.11.jar",
+          "PkgIdentifier": {
+            "PURL": "pkg:maven/ch.qos.logback/logback-core@1.4.11",
+            "UID": "b95cbefbc653dd6c"
+          },
+          "InstalledVersion": "1.4.11",
+          "FixedVersion": "1.3.12, 1.4.12, 1.2.13",
+          "Status": "fixed",
+          "Layer": {
+            "Digest": "sha256:a5769a9b415d3284f6e473ee3096dda36e66e871f347eb93b23160262c835f44",
+            "DiffID": "sha256:817b93f8b2201f0c845e4315bb834167d2a546c11b121bbcf7a5da2bd2628b4e"
+          },
+          "SeveritySource": "ghsa",
+          "PrimaryURL": "https://avd.aquasec.com/nvd/cve-2023-6378",
+          "DataSource": {
+            "ID": "ghsa",
+            "Name": "GitHub Security Advisory Maven",
+            "URL": "https://github.com/advisories?query=type%3Areviewed+ecosystem%3Amaven"
+          },
+          "Title": "logback: serialization vulnerability in logback receiver",
+          "Description": "A serialization vulnerability in logback receiver component part of \nlogback version 1.4.11 allows an attacker to mount a Denial-Of-Service \nattack by sending poisoned data.\n\n",
+          "Severity": "HIGH",
+          "CweIDs": [
+            "CWE-502"
+          ],
+          "VendorSeverity": {
+            "ghsa": 3,
+            "nvd": 3,
+            "redhat": 2,
+            "ubuntu": 2
+          },
+          "CVSS": {
+            "ghsa": {
+              "V3Vector": "CVSS:3.1/AV:L/AC:L/PR:N/UI:N/S:C/C:N/I:N/A:H",
+              "V3Score": 7.1
+            },
+            "nvd": {
+              "V3Vector": "CVSS:3.1/AV:N/AC:L/PR:N/UI:N/S:U/C:N/I:N/A:H",
+              "V3Score": 7.5
+            },
+            "redhat": {
+              "V3Vector": "CVSS:3.1/AV:N/AC:L/PR:N/UI:N/S:U/C:N/I:N/A:H",
+              "V3Score": 7.5
+            }
+          },
+          "References": [
+            "https://access.redhat.com/security/cve/CVE-2023-6378",
+            "https://github.com/qos-ch/logback",
+            "https://github.com/qos-ch/logback/commit/9c782b45be4abdafb7e17481e24e7354c2acd1eb",
+            "https://github.com/qos-ch/logback/commit/b8eac23a9de9e05fb6d51160b3f46acd91af9731",
+            "https://github.com/qos-ch/logback/commit/bb095154be011267b64e37a1d401546e7cc2b7c3",
+            "https://github.com/qos-ch/logback/issues/745#issuecomment-1836227158",
+            "https://logback.qos.ch/manual/receivers.html",
+            "https://logback.qos.ch/news.html#1.2.13",
+            "https://logback.qos.ch/news.html#1.3.12",
+            "https://nvd.nist.gov/vuln/detail/CVE-2023-6378",
+            "https://security.netapp.com/advisory/ntap-20241129-0012",
+            "https://security.netapp.com/advisory/ntap-20241129-0012/",
+            "https://ubuntu.com/security/notices/USN-7616-1",
+            "https://www.cve.org/CVERecord?id=CVE-2023-6378"
+          ],
+          "PublishedDate": "2023-11-29T12:15:07.543Z",
+          "LastModifiedDate": "2024-11-29T12:15:06.597Z"
+        },
+        {
+          "VulnerabilityID": "CVE-2024-12798",
+          "PkgName": "ch.qos.logback:logback-core",
+          "PkgPath": "app/app.jar/BOOT-INF/lib/logback-core-1.4.11.jar",
+          "PkgIdentifier": {
+            "PURL": "pkg:maven/ch.qos.logback/logback-core@1.4.11",
+            "UID": "b95cbefbc653dd6c"
+          },
+          "InstalledVersion": "1.4.11",
+          "FixedVersion": "1.5.13, 1.3.15",
+          "Status": "fixed",
+          "Layer": {
+            "Digest": "sha256:a5769a9b415d3284f6e473ee3096dda36e66e871f347eb93b23160262c835f44",
+            "DiffID": "sha256:817b93f8b2201f0c845e4315bb834167d2a546c11b121bbcf7a5da2bd2628b4e"
+          },
+          "SeveritySource": "ghsa",
+          "PrimaryURL": "https://avd.aquasec.com/nvd/cve-2024-12798",
+          "DataSource": {
+            "ID": "ghsa",
+            "Name": "GitHub Security Advisory Maven",
+            "URL": "https://github.com/advisories?query=type%3Areviewed+ecosystem%3Amaven"
+          },
+          "Title": "logback-core: arbitrary code execution via JaninoEventEvaluator",
+          "Description": "ACE vulnerability in JaninoEventEvaluator  by QOS.CH logback-core\n      upto including version 0.1 to 1.3.14 and 1.4.0 to 1.5.12 in Java applications allows\n      attacker to execute arbitrary code by compromising an existing\n      logback configuration file or by injecting an environment variable\n      before program execution.\n\n\n\n\n\nMalicious logback configuration files can allow the attacker to execute \narbitrary code using the JaninoEventEvaluator extension.\n\n\n\nA successful attack requires the user to have write access to a \nconfiguration file. Alternatively, the attacker could inject a malicious \nenvironment variable pointing to a malicious configuration file. In both \ncases, the attack requires existing privilege.",
+          "Severity": "MEDIUM",
+          "CweIDs": [
+            "CWE-917"
+          ],
+          "VendorSeverity": {
+            "ghsa": 2,
+            "redhat": 2
+          },
+          "CVSS": {
+            "redhat": {
+              "V3Vector": "CVSS:3.1/AV:L/AC:H/PR:L/UI:R/S:U/C:L/I:H/A:L",
+              "V3Score": 5.5
+            }
+          },
+          "References": [
+            "https://access.redhat.com/security/cve/CVE-2024-12798",
+            "https://github.com/qos-ch/logback",
+            "https://github.com/qos-ch/logback/commit/2cb6d520df7592ef1c3a198f1b5df3c10c93e183",
+            "https://logback.qos.ch/news.html#1.3.15",
+            "https://logback.qos.ch/news.html#1.5.13",
+            "https://nvd.nist.gov/vuln/detail/CVE-2024-12798",
+            "https://www.cve.org/CVERecord?id=CVE-2024-12798"
+          ],
+          "PublishedDate": "2024-12-19T16:15:07.557Z",
+          "LastModifiedDate": "2025-01-03T14:15:24.37Z"
+        },
+        {
+          "VulnerabilityID": "CVE-2024-12801",
+          "PkgName": "ch.qos.logback:logback-core",
+          "PkgPath": "app/app.jar/BOOT-INF/lib/logback-core-1.4.11.jar",
+          "PkgIdentifier": {
+            "PURL": "pkg:maven/ch.qos.logback/logback-core@1.4.11",
+            "UID": "b95cbefbc653dd6c"
+          },
+          "InstalledVersion": "1.4.11",
+          "FixedVersion": "1.5.13, 1.3.15",
+          "Status": "fixed",
+          "Layer": {
+            "Digest": "sha256:a5769a9b415d3284f6e473ee3096dda36e66e871f347eb93b23160262c835f44",
+            "DiffID": "sha256:817b93f8b2201f0c845e4315bb834167d2a546c11b121bbcf7a5da2bd2628b4e"
+          },
+          "SeveritySource": "ghsa",
+          "PrimaryURL": "https://avd.aquasec.com/nvd/cve-2024-12801",
+          "DataSource": {
+            "ID": "ghsa",
+            "Name": "GitHub Security Advisory Maven",
+            "URL": "https://github.com/advisories?query=type%3Areviewed+ecosystem%3Amaven"
+          },
+          "Title": "logback-core: SaxEventRecorder vulnerable to Server-Side Request Forgery (SSRF) attacks",
+          "Description": "Server-Side Request Forgery (SSRF) in SaxEventRecorder by QOS.CH logback version 0.1 to 1.3.14 and 1.4.0 to 1.5.12  on the Java platform, allows an attacker to \nforge requests by compromising logback configuration files in XML.\n\n\n\nThe attacks involves the modification of DOCTYPE declaration in  XML configuration files.",
+          "Severity": "LOW",
+          "CweIDs": [
+            "CWE-918"
+          ],
+          "VendorSeverity": {
+            "ghsa": 1,
+            "redhat": 1
+          },
+          "CVSS": {
+            "redhat": {
+              "V3Vector": "CVSS:3.1/AV:L/AC:H/PR:L/UI:R/S:U/C:L/I:L/A:N",
+              "V3Score": 3.3
+            }
+          },
+          "References": [
+            "https://access.redhat.com/security/cve/CVE-2024-12801",
+            "https://github.com/qos-ch/logback",
+            "https://github.com/qos-ch/logback/commit/5f05041cba4c4ac0a62748c5c527a2da48999f2d",
+            "https://logback.qos.ch/news.html#1.3.15",
+            "https://logback.qos.ch/news.html#1.5.13",
+            "https://nvd.nist.gov/vuln/detail/CVE-2024-12801",
+            "https://www.cve.org/CVERecord?id=CVE-2024-12801"
+          ],
+          "PublishedDate": "2024-12-19T17:15:08.93Z",
+          "LastModifiedDate": "2025-01-03T14:15:24.5Z"
+        },
+        {
+          "VulnerabilityID": "CVE-2025-24813",
+          "PkgName": "org.apache.tomcat.embed:tomcat-embed-core",
+          "PkgPath": "app/app.jar/BOOT-INF/lib/tomcat-embed-core-10.1.16.jar",
+          "PkgIdentifier": {
+            "PURL": "pkg:maven/org.apache.tomcat.embed/tomcat-embed-core@10.1.16",
+            "UID": "7edf15fa7c14b446"
+          },
+          "InstalledVersion": "10.1.16",
+          "FixedVersion": "11.0.3, 10.1.35, 9.0.99",
+          "Status": "fixed",
+          "Layer": {
+            "Digest": "sha256:a5769a9b415d3284f6e473ee3096dda36e66e871f347eb93b23160262c835f44",
+            "DiffID": "sha256:817b93f8b2201f0c845e4315bb834167d2a546c11b121bbcf7a5da2bd2628b4e"
+          },
+          "SeveritySource": "ghsa",
+          "PrimaryURL": "https://avd.aquasec.com/nvd/cve-2025-24813",
+          "DataSource": {
+            "ID": "ghsa",
+            "Name": "GitHub Security Advisory Maven",
+            "URL": "https://github.com/advisories?query=type%3Areviewed+ecosystem%3Amaven"
+          },
+          "Title": "tomcat: Potential RCE and/or information disclosure and/or information corruption with partial PUT",
+          "Description": "Path Equivalence: 'file.Name' (Internal Dot) leading to Remote Code Execution and/or Information disclosure and/or malicious content added to uploaded files via write enabled Default Servlet in Apache Tomcat.\n\nThis issue affects Apache Tomcat: from 11.0.0-M1 through 11.0.2, from 10.1.0-M1 through 10.1.34, from 9.0.0.M1 through 9.0.98.\n\nIf all of the following were true, a malicious user was able to view       security sensitive files and/or inject content into those files:\n- writes enabled for the default servlet (disabled by default)\n- support for partial PUT (enabled by default)\n- a target URL for security sensitive uploads that was a sub-directory of a target URL for public uploads\n- attacker knowledge of the names of security sensitive files being uploaded\n- the security sensitive files also being uploaded via partial PUT\n\nIf all of the following were true, a malicious user was able to       perform remote code execution:\n- writes enabled for the default servlet (disabled by default)\n- support for partial PUT (enabled by default)\n- application was using Tomcat's file based session persistence with the default storage location\n- application included a library that may be leveraged in a deserialization attack\n\nUsers are recommended to upgrade to version 11.0.3, 10.1.35 or 9.0.99, which fixes the issue.",
+          "Severity": "CRITICAL",
+          "CweIDs": [
+            "CWE-44",
+            "CWE-502",
+            "CWE-706"
+          ],
+          "VendorSeverity": {
+            "alma": 2,
+            "amazon": 3,
+            "bitnami": 4,
+            "ghsa": 4,
+            "nvd": 4,
+            "oracle-oval": 2,
+            "photon": 4,
+            "redhat": 2,
+            "ubuntu": 3
+          },
+          "CVSS": {
+            "bitnami": {
+              "V3Vector": "CVSS:3.1/AV:N/AC:L/PR:N/UI:N/S:U/C:H/I:H/A:H",
+              "V3Score": 9.8
+            },
+            "ghsa": {
+              "V3Vector": "CVSS:3.1/AV:N/AC:L/PR:N/UI:N/S:U/C:H/I:H/A:H",
+              "V3Score": 9.8
+            },
+            "nvd": {
+              "V3Vector": "CVSS:3.1/AV:N/AC:L/PR:N/UI:N/S:U/C:H/I:H/A:H",
+              "V3Score": 9.8
+            },
+            "redhat": {
+              "V3Vector": "CVSS:3.1/AV:N/AC:L/PR:N/UI:N/S:U/C:H/I:L/A:L",
+              "V3Score": 8.6
+            }
+          },
+          "References": [
+            "http://www.openwall.com/lists/oss-security/2025/03/10/5",
+            "https://access.redhat.com/errata/RHSA-2025:3683",
+            "https://access.redhat.com/security/cve/CVE-2025-24813",
+            "https://bugzilla.redhat.com/2332817",
+            "https://bugzilla.redhat.com/2351129",
+            "https://errata.almalinux.org/8/ALSA-2025-3683.html",
+            "https://github.com/absholi7ly/POC-CVE-2025-24813/blob/main/README.md",
+            "https://github.com/apache/tomcat",
+            "https://github.com/apache/tomcat/commit/0a668e0c27f2b7ca0cc7c6eea32253b9b5ecb29c",
+            "https://github.com/apache/tomcat/commit/eb61aade8f8daccaecabf07d428b877975622f72",
+            "https://github.com/apache/tomcat/commit/f6c01d6577cf9a1e06792be47e623d36acc3b5dc",
+            "https://linux.oracle.com/cve/CVE-2025-24813.html",
+            "https://linux.oracle.com/errata/ELSA-2025-7497.html",
+            "https://lists.apache.org/thread/j5fkjv2k477os90nczf2v9l61fb0kkgq",
+            "https://lists.debian.org/debian-lts-announce/2025/04/msg00003.html",
+            "https://nvd.nist.gov/vuln/detail/CVE-2025-24813",
+            "https://security.netapp.com/advisory/ntap-20250321-0001",
+            "https://security.netapp.com/advisory/ntap-20250321-0001/",
+            "https://ubuntu.com/security/notices/USN-7525-1",
+            "https://ubuntu.com/security/notices/USN-7525-2",
+            "https://www.cisa.gov/known-exploited-vulnerabilities-catalog",
+            "https://www.cve.org/CVERecord?id=CVE-2025-24813",
+            "https://www.vicarius.io/vsociety/posts/cve-2025-24813-detect-apache-tomcat-rce",
+            "https://www.vicarius.io/vsociety/posts/cve-2025-24813-mitigate-apache-tomcat-rce"
+          ],
+          "PublishedDate": "2025-03-10T17:15:35.067Z",
+          "LastModifiedDate": "2025-04-03T20:59:51.68Z"
+        },
+        {
+          "VulnerabilityID": "CVE-2024-34750",
+          "PkgName": "org.apache.tomcat.embed:tomcat-embed-core",
+          "PkgPath": "app/app.jar/BOOT-INF/lib/tomcat-embed-core-10.1.16.jar",
+          "PkgIdentifier": {
+            "PURL": "pkg:maven/org.apache.tomcat.embed/tomcat-embed-core@10.1.16",
+            "UID": "7edf15fa7c14b446"
+          },
+          "InstalledVersion": "10.1.16",
+          "FixedVersion": "11.0.0-M21, 10.1.25, 9.0.90",
+          "Status": "fixed",
+          "Layer": {
+            "Digest": "sha256:a5769a9b415d3284f6e473ee3096dda36e66e871f347eb93b23160262c835f44",
+            "DiffID": "sha256:817b93f8b2201f0c845e4315bb834167d2a546c11b121bbcf7a5da2bd2628b4e"
+          },
+          "SeveritySource": "ghsa",
+          "PrimaryURL": "https://avd.aquasec.com/nvd/cve-2024-34750",
+          "DataSource": {
+            "ID": "ghsa",
+            "Name": "GitHub Security Advisory Maven",
+            "URL": "https://github.com/advisories?query=type%3Areviewed+ecosystem%3Amaven"
+          },
+          "Title": "tomcat: Improper Handling of Exceptional Conditions",
+          "Description": "Improper Handling of Exceptional Conditions, Uncontrolled Resource Consumption vulnerability in Apache Tomcat. When processing an HTTP/2 stream, Tomcat did not handle some cases of excessive HTTP headers correctly. This led to a miscounting of active HTTP/2 streams which in turn led to the use of an incorrect infinite timeout which allowed connections to remain open which should have been closed.\n\nThis issue affects Apache Tomcat: from 11.0.0-M1 through 11.0.0-M20, from 10.1.0-M1 through 10.1.24, from 9.0.0-M1 through 9.0.89.\n\nUsers are recommended to upgrade to version 11.0.0-M21, 10.1.25 or 9.0.90, which fixes the issue.\n\n",
+          "Severity": "HIGH",
+          "CweIDs": [
+            "CWE-400",
+            "CWE-755"
+          ],
+          "VendorSeverity": {
+            "alma": 3,
+            "amazon": 3,
+            "ghsa": 3,
+            "oracle-oval": 3,
+            "photon": 3,
+            "redhat": 3,
+            "rocky": 3,
+            "ubuntu": 2
+          },
+          "CVSS": {
+            "ghsa": {
+              "V3Vector": "CVSS:3.1/AV:N/AC:L/PR:N/UI:N/S:U/C:N/I:N/A:H",
+              "V3Score": 7.5
+            },
+            "redhat": {
+              "V3Vector": "CVSS:3.1/AV:N/AC:L/PR:N/UI:N/S:U/C:N/I:N/A:H",
+              "V3Score": 7.5
+            }
+          },
+          "References": [
+            "https://access.redhat.com/errata/RHSA-2024:5694",
+            "https://access.redhat.com/security/cve/CVE-2024-34750",
+            "https://bugzilla.redhat.com/2295651",
+            "https://bugzilla.redhat.com/show_bug.cgi?id=2295651",
+            "https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2024-34750",
+            "https://errata.almalinux.org/8/ALSA-2024-5694.html",
+            "https://errata.rockylinux.org/RLSA-2024:5693",
+            "https://github.com/apache/tomcat",
+            "https://github.com/apache/tomcat/commit/2344a4c0d03e307ba6b8ab6dc8b894cc8bac63f2",
+            "https://github.com/apache/tomcat/commit/2afae300c9ac9c0e516e2e9de580847d925365c3",
+            "https://github.com/apache/tomcat/commit/9fec9a82887853402833a80b584e3762c7423f5f",
+            "https://linux.oracle.com/cve/CVE-2024-34750.html",
+            "https://linux.oracle.com/errata/ELSA-2024-5694.html",
+            "https://lists.apache.org/thread/4kqf0bc9gxymjc2x7v3p7dvplnl77y8l",
+            "https://nvd.nist.gov/vuln/detail/CVE-2024-34750",
+            "https://security.netapp.com/advisory/ntap-20240816-0004",
+            "https://security.netapp.com/advisory/ntap-20240816-0004/",
+            "https://tomcat.apache.org/security-10.html",
+            "https://tomcat.apache.org/security-11.html",
+            "https://tomcat.apache.org/security-9.html",
+            "https://ubuntu.com/security/notices/USN-7562-1",
+            "https://www.cve.org/CVERecord?id=CVE-2024-34750"
+          ],
+          "PublishedDate": "2024-07-03T20:15:04.083Z",
+          "LastModifiedDate": "2025-06-03T21:32:00.903Z"
+        },
+        {
+          "VulnerabilityID": "CVE-2024-50379",
+          "PkgName": "org.apache.tomcat.embed:tomcat-embed-core",
+          "PkgPath": "app/app.jar/BOOT-INF/lib/tomcat-embed-core-10.1.16.jar",
+          "PkgIdentifier": {
+            "PURL": "pkg:maven/org.apache.tomcat.embed/tomcat-embed-core@10.1.16",
+            "UID": "7edf15fa7c14b446"
+          },
+          "InstalledVersion": "10.1.16",
+          "FixedVersion": "11.0.2, 10.1.34, 9.0.98",
+          "Status": "fixed",
+          "Layer": {
+            "Digest": "sha256:a5769a9b415d3284f6e473ee3096dda36e66e871f347eb93b23160262c835f44",
+            "DiffID": "sha256:817b93f8b2201f0c845e4315bb834167d2a546c11b121bbcf7a5da2bd2628b4e"
+          },
+          "SeveritySource": "ghsa",
+          "PrimaryURL": "https://avd.aquasec.com/nvd/cve-2024-50379",
+          "DataSource": {
+            "ID": "ghsa",
+            "Name": "GitHub Security Advisory Maven",
+            "URL": "https://github.com/advisories?query=type%3Areviewed+ecosystem%3Amaven"
+          },
+          "Title": "tomcat: RCE due to TOCTOU issue in JSP compilation",
+          "Description": "Time-of-check Time-of-use (TOCTOU) Race Condition vulnerability during JSP compilation in Apache Tomcat permits an RCE on case insensitive file systems when the default servlet is enabled for write (non-default configuration).\n\nThis issue affects Apache Tomcat: from 11.0.0-M1 through 11.0.1, from 10.1.0-M1 through 10.1.33, from 9.0.0.M1 through 9.0.97.\n\nUsers are recommended to upgrade to version 11.0.2, 10.1.34 or 9.0.98, which fixes the issue.",
+          "Severity": "HIGH",
+          "CweIDs": [
+            "CWE-367"
+          ],
+          "VendorSeverity": {
+            "alma": 2,
+            "amazon": 3,
+            "bitnami": 4,
+            "ghsa": 3,
+            "oracle-oval": 2,
+            "photon": 4,
+            "redhat": 2,
+            "ubuntu": 2
+          },
+          "CVSS": {
+            "bitnami": {
+              "V3Vector": "CVSS:3.1/AV:N/AC:L/PR:N/UI:N/S:U/C:H/I:H/A:H",
+              "V3Score": 9.8
+            },
+            "ghsa": {
+              "V3Vector": "CVSS:3.1/AV:N/AC:L/PR:N/UI:N/S:U/C:H/I:H/A:H",
+              "V3Score": 9.8
+            },
+            "redhat": {
+              "V3Vector": "CVSS:3.1/AV:N/AC:H/PR:N/UI:N/S:U/C:H/I:H/A:H",
+              "V3Score": 8.1
+            }
+          },
+          "References": [
+            "http://www.openwall.com/lists/oss-security/2024/12/17/4",
+            "http://www.openwall.com/lists/oss-security/2024/12/18/2",
+            "https://access.redhat.com/errata/RHSA-2025:3683",
+            "https://access.redhat.com/security/cve/CVE-2024-50379",
+            "https://bugzilla.redhat.com/2332817",
+            "https://bugzilla.redhat.com/2351129",
+            "https://errata.almalinux.org/8/ALSA-2025-3683.html",
+            "https://github.com/apache/tomcat",
+            "https://github.com/apache/tomcat/commit/05ddeeaa54df1e2dc427d0164bedd6b79f78d81f",
+            "https://github.com/apache/tomcat/commit/05ddeeaa54df1e2dc427d0164bedd6b79f78d81f (10.1.34)",
+            "https://github.com/apache/tomcat/commit/43b507ebac9d268b1ea3d908e296cc6e46795c00",
+            "https://github.com/apache/tomcat/commit/43b507ebac9d268b1ea3d908e296cc6e46795c00 (9.0.98)",
+            "https://github.com/apache/tomcat/commit/631500b0c9b2a2a2abb707e3de2e10a5936e5d41",
+            "https://github.com/apache/tomcat/commit/631500b0c9b2a2a2abb707e3de2e10a5936e5d41 (9.0.98)",
+            "https://github.com/apache/tomcat/commit/684247ae85fa633b9197b32391de59fc54703842",
+            "https://github.com/apache/tomcat/commit/8554f6b1722b33a2ce8b0a3fad37825f3a75f2d2",
+            "https://github.com/apache/tomcat/commit/8554f6b1722b33a2ce8b0a3fad37825f3a75f2d2 (10.1.34)",
+            "https://github.com/apache/tomcat/commit/cc7a98b57c6dc1df21979fcff94a36e068f4456c",
+            "https://linux.oracle.com/cve/CVE-2024-50379.html",
+            "https://linux.oracle.com/errata/ELSA-2025-3683.html",
+            "https://lists.apache.org/thread/y6lj6q1xnp822g6ro70tn19sgtjmr80r",
+            "https://nvd.nist.gov/vuln/detail/CVE-2024-50379",
+            "https://security.netapp.com/advisory/ntap-20250103-0003",
+            "https://security.netapp.com/advisory/ntap-20250103-0003/",
+            "https://tomcat.apache.org/security-10.html#Fixed_in_Apache_Tomcat_10.1.34",
+            "https://tomcat.apache.org/security-11.html#Fixed_in_Apache_Tomcat_11.0.2",
+            "https://tomcat.apache.org/security-9.html#Fixed_in_Apache_Tomcat_9.0.98",
+            "https://www.cve.org/CVERecord?id=CVE-2024-50379"
+          ],
+          "PublishedDate": "2024-12-17T13:15:18.81Z",
+          "LastModifiedDate": "2025-07-01T20:30:01.35Z"
+        },
+        {
+          "VulnerabilityID": "CVE-2024-56337",
+          "PkgName": "org.apache.tomcat.embed:tomcat-embed-core",
+          "PkgPath": "app/app.jar/BOOT-INF/lib/tomcat-embed-core-10.1.16.jar",
+          "PkgIdentifier": {
+            "PURL": "pkg:maven/org.apache.tomcat.embed/tomcat-embed-core@10.1.16",
+            "UID": "7edf15fa7c14b446"
+          },
+          "InstalledVersion": "10.1.16",
+          "FixedVersion": "11.0.2, 10.1.34, 9.0.98",
+          "Status": "fixed",
+          "Layer": {
+            "Digest": "sha256:a5769a9b415d3284f6e473ee3096dda36e66e871f347eb93b23160262c835f44",
+            "DiffID": "sha256:817b93f8b2201f0c845e4315bb834167d2a546c11b121bbcf7a5da2bd2628b4e"
+          },
+          "SeveritySource": "ghsa",
+          "PrimaryURL": "https://avd.aquasec.com/nvd/cve-2024-56337",
+          "DataSource": {
+            "ID": "ghsa",
+            "Name": "GitHub Security Advisory Maven",
+            "URL": "https://github.com/advisories?query=type%3Areviewed+ecosystem%3Amaven"
+          },
+          "Title": "tomcat: Incomplete fix for CVE-2024-50379 - RCE due to TOCTOU issue in JSP compilation",
+          "Description": "Time-of-check Time-of-use (TOCTOU) Race Condition vulnerability in Apache Tomcat.\n\nThis issue affects Apache Tomcat: from 11.0.0-M1 through 11.0.1, from 10.1.0-M1 through 10.1.33, from 9.0.0.M1 through 9.0.97.\n\nThe mitigation for CVE-2024-50379 was incomplete.\n\nUsers running Tomcat on a case insensitive file system with the default servlet write enabled (readonly initialisation \nparameter set to the non-default value of false) may need additional configuration to fully mitigate CVE-2024-50379 depending on which version of Java they are using with Tomcat:\n- running on Java 8 or Java 11: the system property sun.io.useCanonCaches must be explicitly set to false (it defaults to true)\n- running on Java 17: the system property sun.io.useCanonCaches, if set, must be set to false (it defaults to false)\n- running on Java 21 onwards: no further configuration is required (the system property and the problematic cache have been removed)\n\nTomcat 11.0.3, 10.1.35 and 9.0.99 onwards will include checks that sun.io.useCanonCaches is set appropriately before allowing the default servlet to be write enabled on a case insensitive file system. Tomcat will also set sun.io.useCanonCaches to false by default where it can.",
+          "Severity": "HIGH",
+          "CweIDs": [
+            "CWE-367"
+          ],
+          "VendorSeverity": {
+            "amazon": 3,
+            "bitnami": 4,
+            "ghsa": 3,
+            "photon": 4,
+            "redhat": 2,
+            "ubuntu": 2
+          },
+          "CVSS": {
+            "bitnami": {
+              "V3Vector": "CVSS:3.1/AV:N/AC:L/PR:N/UI:N/S:U/C:H/I:H/A:H",
+              "V3Score": 9.8
+            },
+            "redhat": {
+              "V3Vector": "CVSS:3.1/AV:N/AC:H/PR:N/UI:N/S:U/C:H/I:H/A:H",
+              "V3Score": 8.1
+            }
+          },
+          "References": [
+            "https://access.redhat.com/security/cve/CVE-2024-56337",
+            "https://github.com/apache/tomcat",
+            "https://lists.apache.org/thread/b2b9qrgjrz1kvo4ym8y2wkfdvwoq6qbp",
+            "https://nvd.nist.gov/vuln/detail/CVE-2024-56337",
+            "https://security.netapp.com/advisory/ntap-20250103-0002",
+            "https://security.netapp.com/advisory/ntap-20250103-0002/",
+            "https://tomcat.apache.org/security-10.html#Fixed_in_Apache_Tomcat_10.1.34",
+            "https://tomcat.apache.org/security-11.html#Fixed_in_Apache_Tomcat_11.0.2",
+            "https://tomcat.apache.org/security-9.html#Fixed_in_Apache_Tomcat_9.0.98",
+            "https://www.cve.org/CVERecord?id=CVE-2024-50379",
+            "https://www.cve.org/CVERecord?id=CVE-2024-56337"
+          ],
+          "PublishedDate": "2024-12-20T16:15:24.26Z",
+          "LastModifiedDate": "2025-01-03T12:15:26.787Z"
+        },
+        {
+          "VulnerabilityID": "CVE-2025-48988",
+          "PkgName": "org.apache.tomcat.embed:tomcat-embed-core",
+          "PkgPath": "app/app.jar/BOOT-INF/lib/tomcat-embed-core-10.1.16.jar",
+          "PkgIdentifier": {
+            "PURL": "pkg:maven/org.apache.tomcat.embed/tomcat-embed-core@10.1.16",
+            "UID": "7edf15fa7c14b446"
+          },
+          "InstalledVersion": "10.1.16",
+          "FixedVersion": "11.0.8, 10.1.42, 9.0.106",
+          "Status": "fixed",
+          "Layer": {
+            "Digest": "sha256:a5769a9b415d3284f6e473ee3096dda36e66e871f347eb93b23160262c835f44",
+            "DiffID": "sha256:817b93f8b2201f0c845e4315bb834167d2a546c11b121bbcf7a5da2bd2628b4e"
+          },
+          "SeveritySource": "ghsa",
+          "PrimaryURL": "https://avd.aquasec.com/nvd/cve-2025-48988",
+          "DataSource": {
+            "ID": "ghsa",
+            "Name": "GitHub Security Advisory Maven",
+            "URL": "https://github.com/advisories?query=type%3Areviewed+ecosystem%3Amaven"
+          },
+          "Title": "tomcat: Apache Tomcat DoS in multipart upload",
+          "Description": "Allocation of Resources Without Limits or Throttling vulnerability in Apache Tomcat.\n\nThis issue affects Apache Tomcat: from 11.0.0-M1 through 11.0.7, from 10.1.0-M1 through 10.1.41, from 9.0.0.M1 through 9.0.105.\n\nUsers are recommended to upgrade to version 11.0.8, 10.1.42 or 9.0.106, which fix the issue.",
+          "Severity": "HIGH",
+          "CweIDs": [
+            "CWE-770"
+          ],
+          "VendorSeverity": {
+            "amazon": 3,
+            "bitnami": 3,
+            "ghsa": 3,
+            "photon": 3,
+            "redhat": 2
+          },
+          "CVSS": {
+            "bitnami": {
+              "V3Vector": "CVSS:3.1/AV:N/AC:L/PR:N/UI:N/S:U/C:N/I:N/A:H",
+              "V3Score": 7.5
+            },
+            "ghsa": {
+              "V3Vector": "CVSS:3.1/AV:N/AC:L/PR:N/UI:N/S:U/C:N/I:N/A:H",
+              "V3Score": 7.5
+            },
+            "redhat": {
+              "V3Vector": "CVSS:3.1/AV:N/AC:L/PR:N/UI:N/S:U/C:N/I:N/A:L",
+              "V3Score": 5.3
+            }
+          },
+          "References": [
+            "http://www.openwall.com/lists/oss-security/2025/06/16/1",
+            "https://access.redhat.com/security/cve/CVE-2025-48988",
+            "https://github.com/apache/tomcat",
+            "https://github.com/apache/tomcat/commit/2b0ab14fb55d4edc896e5f1817f2ab76f714ae5e",
+            "https://github.com/apache/tomcat/commit/cdde8e655bc1c5c60a07efd216251d77c52fd7f6",
+            "https://github.com/apache/tomcat/commit/ee8042ffce4cb9324dfd79efda5984f37bbb6910",
+            "https://lists.apache.org/thread/nzkqsok8t42qofgqfmck536mtyzygp18",
+            "https://nvd.nist.gov/vuln/detail/CVE-2025-48988",
+            "https://tomcat.apache.org/security-10.html",
+            "https://tomcat.apache.org/security-11.html",
+            "https://tomcat.apache.org/security-9.html",
+            "https://www.cve.org/CVERecord?id=CVE-2025-48988"
+          ],
+          "PublishedDate": "2025-06-16T15:15:24.563Z",
+          "LastModifiedDate": "2025-06-17T20:50:23.507Z"
+        },
+        {
+          "VulnerabilityID": "CVE-2024-24549",
+          "PkgName": "org.apache.tomcat.embed:tomcat-embed-core",
+          "PkgPath": "app/app.jar/BOOT-INF/lib/tomcat-embed-core-10.1.16.jar",
+          "PkgIdentifier": {
+            "PURL": "pkg:maven/org.apache.tomcat.embed/tomcat-embed-core@10.1.16",
+            "UID": "7edf15fa7c14b446"
+          },
+          "InstalledVersion": "10.1.16",
+          "FixedVersion": "8.5.99, 9.0.86, 10.1.19, 11.0.0-M17",
+          "Status": "fixed",
+          "Layer": {
+            "Digest": "sha256:a5769a9b415d3284f6e473ee3096dda36e66e871f347eb93b23160262c835f44",
+            "DiffID": "sha256:817b93f8b2201f0c845e4315bb834167d2a546c11b121bbcf7a5da2bd2628b4e"
+          },
+          "SeveritySource": "ghsa",
+          "PrimaryURL": "https://avd.aquasec.com/nvd/cve-2024-24549",
+          "DataSource": {
+            "ID": "ghsa",
+            "Name": "GitHub Security Advisory Maven",
+            "URL": "https://github.com/advisories?query=type%3Areviewed+ecosystem%3Amaven"
+          },
+          "Title": "Tomcat: HTTP/2 header handling DoS",
+          "Description": "Denial of Service due to improper input validation vulnerability for HTTP/2 requests in Apache Tomcat. When processing an HTTP/2 request, if the request exceeded any of the configured limits for headers, the associated HTTP/2 stream was not reset until after all of the headers had been processed.This issue affects Apache Tomcat: from 11.0.0-M1 through 11.0.0-M16, from 10.1.0-M1 through 10.1.18, from 9.0.0-M1 through 9.0.85, from 8.5.0 through 8.5.98.\n\nUsers are recommended to upgrade to version 11.0.0-M17, 10.1.19, 9.0.86 or 8.5.99 which fix the issue.",
+          "Severity": "MEDIUM",
+          "CweIDs": [
+            "CWE-20"
+          ],
+          "VendorSeverity": {
+            "alma": 3,
+            "amazon": 3,
+            "ghsa": 2,
+            "oracle-oval": 3,
+            "redhat": 3,
+            "rocky": 3,
+            "ubuntu": 2
+          },
+          "CVSS": {
+            "ghsa": {
+              "V3Vector": "CVSS:3.1/AV:N/AC:L/PR:N/UI:N/S:U/C:N/I:N/A:H",
+              "V3Score": 7.5
+            },
+            "redhat": {
+              "V3Vector": "CVSS:3.1/AV:N/AC:L/PR:N/UI:N/S:U/C:N/I:N/A:H",
+              "V3Score": 7.5
+            }
+          },
+          "References": [
+            "http://www.openwall.com/lists/oss-security/2024/03/13/3",
+            "https://access.redhat.com/errata/RHSA-2024:3666",
+            "https://access.redhat.com/security/cve/CVE-2024-24549",
+            "https://bugzilla.redhat.com/2269607",
+            "https://bugzilla.redhat.com/2269608",
+            "https://bugzilla.redhat.com/show_bug.cgi?id=2269607",
+            "https://bugzilla.redhat.com/show_bug.cgi?id=2269608",
+            "https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2024-23672",
+            "https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2024-24549",
+            "https://errata.almalinux.org/8/ALSA-2024-3666.html",
+            "https://errata.rockylinux.org/RLSA-2024:3307",
+            "https://github.com/apache/tomcat",
+            "https://github.com/apache/tomcat/commit/0cac540a882220231ba7a82330483cbd5f6b1f96",
+            "https://github.com/apache/tomcat/commit/810f49d5ff6d64b704af85d5b8d0aab9ec3c83f5",
+            "https://github.com/apache/tomcat/commit/8e03be9f2698f2da9027d40b9e9c0c9429b74dc0",
+            "https://github.com/apache/tomcat/commit/8e03be9f2698f2da9027d40b9e9c0c9429b74dc0 (9.0.86)",
+            "https://github.com/apache/tomcat/commit/d07c82194edb69d99b438828fe2cbfadbb207843",
+            "https://github.com/apache/tomcat/commit/d07c82194edb69d99b438828fe2cbfadbb207843 (10.1.19)",
+            "https://linux.oracle.com/cve/CVE-2024-24549.html",
+            "https://linux.oracle.com/errata/ELSA-2024-3666.html",
+            "https://lists.apache.org/thread/4c50rmomhbbsdgfjsgwlb51xdwfjdcvg",
+            "https://lists.debian.org/debian-lts-announce/2024/04/msg00001.html",
+            "https://lists.fedoraproject.org/archives/list/package-announce@lists.fedoraproject.org/message/3UWIS5MMGYDZBLJYT674ZI5AWFHDZ46B",
+            "https://lists.fedoraproject.org/archives/list/package-announce@lists.fedoraproject.org/message/3UWIS5MMGYDZBLJYT674ZI5AWFHDZ46B/",
+            "https://lists.fedoraproject.org/archives/list/package-announce@lists.fedoraproject.org/message/736G4GPZWS2DSQO5WKXO3G6OMZKFEK55",
+            "https://lists.fedoraproject.org/archives/list/package-announce@lists.fedoraproject.org/message/736G4GPZWS2DSQO5WKXO3G6OMZKFEK55/",
+            "https://nvd.nist.gov/vuln/detail/CVE-2024-24549",
+            "https://security.netapp.com/advisory/ntap-20240402-0002",
+            "https://security.netapp.com/advisory/ntap-20240402-0002/",
+            "https://ubuntu.com/security/notices/USN-7562-1",
+            "https://www.cve.org/CVERecord?id=CVE-2024-24549"
+          ],
+          "PublishedDate": "2024-03-13T16:15:29.373Z",
+          "LastModifiedDate": "2025-05-19T13:02:08.91Z"
+        },
+        {
+          "VulnerabilityID": "CVE-2025-31650",
+          "PkgName": "org.apache.tomcat.embed:tomcat-embed-core",
+          "PkgPath": "app/app.jar/BOOT-INF/lib/tomcat-embed-core-10.1.16.jar",
+          "PkgIdentifier": {
+            "PURL": "pkg:maven/org.apache.tomcat.embed/tomcat-embed-core@10.1.16",
+            "UID": "7edf15fa7c14b446"
+          },
+          "InstalledVersion": "10.1.16",
+          "FixedVersion": "9.0.104, 10.1.40, 11.0.6",
+          "Status": "fixed",
+          "Layer": {
+            "Digest": "sha256:a5769a9b415d3284f6e473ee3096dda36e66e871f347eb93b23160262c835f44",
+            "DiffID": "sha256:817b93f8b2201f0c845e4315bb834167d2a546c11b121bbcf7a5da2bd2628b4e"
+          },
+          "SeveritySource": "ghsa",
+          "PrimaryURL": "https://avd.aquasec.com/nvd/cve-2025-31650",
+          "DataSource": {
+            "ID": "ghsa",
+            "Name": "GitHub Security Advisory Maven",
+            "URL": "https://github.com/advisories?query=type%3Areviewed+ecosystem%3Amaven"
+          },
+          "Title": "tomcat: Apache Tomcat: DoS via malformed HTTP/2 PRIORITY_UPDATE frame",
+          "Description": "Improper Input Validation vulnerability in Apache Tomcat. Incorrect error handling for some invalid HTTP priority headers resulted in incomplete clean-up of the failed request which created a memory leak. A large number of such requests could trigger an OutOfMemoryException resulting in a denial of service.\n\nThis issue affects Apache Tomcat: from 9.0.76 through 9.0.102, from 10.1.10 through 10.1.39, from 11.0.0-M2 through 11.0.5.\n\nUsers are recommended to upgrade to version 9.0.104, 10.1.40 or 11.0.6 which fix the issue.",
+          "Severity": "MEDIUM",
+          "CweIDs": [
+            "CWE-459"
+          ],
+          "VendorSeverity": {
+            "amazon": 3,
+            "ghsa": 2,
+            "nvd": 3,
+            "photon": 3,
+            "redhat": 3,
+            "ubuntu": 2
+          },
+          "CVSS": {
+            "nvd": {
+              "V3Vector": "CVSS:3.1/AV:N/AC:L/PR:N/UI:N/S:U/C:N/I:N/A:H",
+              "V3Score": 7.5
+            },
+            "redhat": {
+              "V3Vector": "CVSS:3.1/AV:N/AC:L/PR:N/UI:N/S:U/C:N/I:N/A:H",
+              "V3Score": 7.5
+            }
+          },
+          "References": [
+            "http://www.openwall.com/lists/oss-security/2025/04/28/2",
+            "https://access.redhat.com/security/cve/CVE-2025-31650",
+            "https://github.com/apache/tomcat",
+            "https://github.com/apache/tomcat/commit/1eef1dc459c45f1e421d8bd25ef340fc1cc34edc",
+            "https://github.com/apache/tomcat/commit/40ae788c2e64d018b4e58cd4210bb96434d0100d",
+            "https://github.com/apache/tomcat/commit/75554da2fc5574862510ae6f0d7b3d78937f1d40",
+            "https://github.com/apache/tomcat/commit/8cc3b8fb3f2d8d4d6a757e014f19d1fafa948a60",
+            "https://github.com/apache/tomcat/commit/b7674782679e1514a0d154166b1d04d38aaac4a9",
+            "https://github.com/apache/tomcat/commit/b98e74f517b36929f4208506e5adad22cb767baa",
+            "https://github.com/apache/tomcat/commit/cba1a0fe1289ee7f5dd46c61c38d1e1ac5437bff",
+            "https://github.com/apache/tomcat/commit/ded0285b96b4d3f5560dfc8856ad5ec4a9b50ba9",
+            "https://github.com/apache/tomcat/commit/f619e6a05029538886d5a9d987925d573b5bb8c2",
+            "https://lists.apache.org/thread/j6zzk0y3yym9pzfzkq5vcyxzz0yzh826",
+            "https://nvd.nist.gov/vuln/detail/CVE-2025-31650",
+            "https://tomcat.apache.org/security-10.html",
+            "https://tomcat.apache.org/security-11.html",
+            "https://tomcat.apache.org/security-9.html",
+            "https://www.cve.org/CVERecord?id=CVE-2025-31650"
+          ],
+          "PublishedDate": "2025-04-28T20:15:20.653Z",
+          "LastModifiedDate": "2025-05-06T20:15:26.237Z"
+        },
+        {
+          "VulnerabilityID": "CVE-2025-49125",
+          "PkgName": "org.apache.tomcat.embed:tomcat-embed-core",
+          "PkgPath": "app/app.jar/BOOT-INF/lib/tomcat-embed-core-10.1.16.jar",
+          "PkgIdentifier": {
+            "PURL": "pkg:maven/org.apache.tomcat.embed/tomcat-embed-core@10.1.16",
+            "UID": "7edf15fa7c14b446"
+          },
+          "InstalledVersion": "10.1.16",
+          "FixedVersion": "11.0.8, 10.1.42, 9.0.106",
+          "Status": "fixed",
+          "Layer": {
+            "Digest": "sha256:a5769a9b415d3284f6e473ee3096dda36e66e871f347eb93b23160262c835f44",
+            "DiffID": "sha256:817b93f8b2201f0c845e4315bb834167d2a546c11b121bbcf7a5da2bd2628b4e"
+          },
+          "SeveritySource": "ghsa",
+          "PrimaryURL": "https://avd.aquasec.com/nvd/cve-2025-49125",
+          "DataSource": {
+            "ID": "ghsa",
+            "Name": "GitHub Security Advisory Maven",
+            "URL": "https://github.com/advisories?query=type%3Areviewed+ecosystem%3Amaven"
+          },
+          "Title": "tomcat: Apache Tomcat: Security constraint bypass for pre/post-resources",
+          "Description": "Authentication Bypass Using an Alternate Path or Channel vulnerability in Apache Tomcat.  When using PreResources or PostResources mounted other than at the root of the web application, it was possible to access those resources via an unexpected path. That path was likely not to be protected by the same security constraints as the expected path, allowing those security constraints to be bypassed.\n\nThis issue affects Apache Tomcat: from 11.0.0-M1 through 11.0.7, from 10.1.0-M1 through 10.1.41, from 9.0.0.M1 through 9.0.105.\n\nUsers are recommended to upgrade to version 11.0.8, 10.1.42 or 9.0.106, which fix the issue.",
+          "Severity": "MEDIUM",
+          "CweIDs": [
+            "CWE-288"
+          ],
+          "VendorSeverity": {
+            "amazon": 3,
+            "bitnami": 3,
+            "ghsa": 2,
+            "photon": 3,
+            "redhat": 1
+          },
+          "CVSS": {
+            "bitnami": {
+              "V3Vector": "CVSS:3.1/AV:N/AC:L/PR:N/UI:N/S:U/C:H/I:N/A:N",
+              "V3Score": 7.5
+            },
+            "redhat": {
+              "V3Vector": "CVSS:3.1/AV:N/AC:H/PR:N/UI:N/S:U/C:L/I:N/A:N",
+              "V3Score": 3.7
+            }
+          },
+          "References": [
+            "http://www.openwall.com/lists/oss-security/2025/06/16/2",
+            "https://access.redhat.com/security/cve/CVE-2025-49125",
+            "https://github.com/apache/tomcat",
+            "https://github.com/apache/tomcat/commit/7617b9c247bc77ed0444dd69adcd8aa48777886c",
+            "https://github.com/apache/tomcat/commit/9418e3ff9f1f4c006b4661311ae9376c52d162b9",
+            "https://github.com/apache/tomcat/commit/d94bd36fb7eb32e790dae0339bc249069649a637",
+            "https://lists.apache.org/thread/m66cytbfrty9k7dc4cg6tl1czhsnbywk",
+            "https://nvd.nist.gov/vuln/detail/CVE-2025-49125",
+            "https://tomcat.apache.org/security-10.html",
+            "https://tomcat.apache.org/security-11.html",
+            "https://tomcat.apache.org/security-9.html",
+            "https://www.cve.org/CVERecord?id=CVE-2025-49125"
+          ],
+          "PublishedDate": "2025-06-16T15:15:24.85Z",
+          "LastModifiedDate": "2025-07-02T18:28:13.577Z"
+        },
+        {
+          "VulnerabilityID": "CVE-2025-31651",
+          "PkgName": "org.apache.tomcat.embed:tomcat-embed-core",
+          "PkgPath": "app/app.jar/BOOT-INF/lib/tomcat-embed-core-10.1.16.jar",
+          "PkgIdentifier": {
+            "PURL": "pkg:maven/org.apache.tomcat.embed/tomcat-embed-core@10.1.16",
+            "UID": "7edf15fa7c14b446"
+          },
+          "InstalledVersion": "10.1.16",
+          "FixedVersion": "9.0.104, 10.1.40, 11.0.6",
+          "Status": "fixed",
+          "Layer": {
+            "Digest": "sha256:a5769a9b415d3284f6e473ee3096dda36e66e871f347eb93b23160262c835f44",
+            "DiffID": "sha256:817b93f8b2201f0c845e4315bb834167d2a546c11b121bbcf7a5da2bd2628b4e"
+          },
+          "SeveritySource": "ghsa",
+          "PrimaryURL": "https://avd.aquasec.com/nvd/cve-2025-31651",
+          "DataSource": {
+            "ID": "ghsa",
+            "Name": "GitHub Security Advisory Maven",
+            "URL": "https://github.com/advisories?query=type%3Areviewed+ecosystem%3Amaven"
+          },
+          "Title": "tomcat: Apache Tomcat: Bypass of rules in Rewrite Valve",
+          "Description": "Improper Neutralization of Escape, Meta, or Control Sequences vulnerability in Apache Tomcat. For a subset of unlikely rewrite rule configurations, it was possible \nfor a specially crafted request to bypass some rewrite rules. If those \nrewrite rules effectively enforced security constraints, those \nconstraints could be bypassed.\n\nThis issue affects Apache Tomcat: from 11.0.0-M1 through 11.0.5, from 10.1.0-M1 through 10.1.39, from 9.0.0.M1 through 9.0.102.\n\nUsers are recommended to upgrade to version [FIXED_VERSION], which fixes the issue.",
+          "Severity": "LOW",
+          "CweIDs": [
+            "CWE-116"
+          ],
+          "VendorSeverity": {
+            "amazon": 3,
+            "bitnami": 4,
+            "ghsa": 1,
+            "nvd": 4,
+            "photon": 4,
+            "redhat": 1,
+            "ubuntu": 2
+          },
+          "CVSS": {
+            "bitnami": {
+              "V3Vector": "CVSS:3.1/AV:N/AC:L/PR:N/UI:N/S:U/C:H/I:H/A:H",
+              "V3Score": 9.8
+            },
+            "nvd": {
+              "V3Vector": "CVSS:3.1/AV:N/AC:L/PR:N/UI:N/S:U/C:H/I:H/A:H",
+              "V3Score": 9.8
+            },
+            "redhat": {
+              "V3Vector": "CVSS:3.1/AV:N/AC:L/PR:N/UI:N/S:U/C:N/I:L/A:N",
+              "V3Score": 5.3
+            }
+          },
+          "References": [
+            "http://www.openwall.com/lists/oss-security/2025/04/28/3",
+            "https://access.redhat.com/security/cve/CVE-2025-31651",
+            "https://github.com/apache/tomcat",
+            "https://github.com/apache/tomcat/commit/066bf6b6a15a4e7e0941d4acf096841165b97098",
+            "https://github.com/apache/tomcat/commit/175dc75fc428930034a6c93fb52f830d955d8e64",
+            "https://github.com/apache/tomcat/commit/ee3ab548e92345eca0cbd1f01649eb36c6f29454",
+            "https://github.com/apache/tomcat/commit/fbecc915a10c5a3d634c5e2c6ced4ff479ce9953",
+            "https://lists.apache.org/list.html?announce@tomcat.apache.org",
+            "https://nvd.nist.gov/vuln/detail/CVE-2025-31651",
+            "https://tomcat.apache.org/security-10.html",
+            "https://tomcat.apache.org/security-11.html",
+            "https://tomcat.apache.org/security-9.html",
+            "https://www.cve.org/CVERecord?id=CVE-2025-31651"
+          ],
+          "PublishedDate": "2025-04-28T20:15:20.783Z",
+          "LastModifiedDate": "2025-05-06T21:16:18.48Z"
+        },
+        {
+          "VulnerabilityID": "CVE-2025-46701",
+          "PkgName": "org.apache.tomcat.embed:tomcat-embed-core",
+          "PkgPath": "app/app.jar/BOOT-INF/lib/tomcat-embed-core-10.1.16.jar",
+          "PkgIdentifier": {
+            "PURL": "pkg:maven/org.apache.tomcat.embed/tomcat-embed-core@10.1.16",
+            "UID": "7edf15fa7c14b446"
+          },
+          "InstalledVersion": "10.1.16",
+          "FixedVersion": "9.0.105, 10.1.41, 11.0.7",
+          "Status": "fixed",
+          "Layer": {
+            "Digest": "sha256:a5769a9b415d3284f6e473ee3096dda36e66e871f347eb93b23160262c835f44",
+            "DiffID": "sha256:817b93f8b2201f0c845e4315bb834167d2a546c11b121bbcf7a5da2bd2628b4e"
+          },
+          "SeveritySource": "ghsa",
+          "PrimaryURL": "https://avd.aquasec.com/nvd/cve-2025-46701",
+          "DataSource": {
+            "ID": "ghsa",
+            "Name": "GitHub Security Advisory Maven",
+            "URL": "https://github.com/advisories?query=type%3Areviewed+ecosystem%3Amaven"
+          },
+          "Title": "tomcat: Apache Tomcat: Security constraint bypass for CGI scripts",
+          "Description": "Improper Handling of Case Sensitivity vulnerability in Apache Tomcat's GCI servlet allows security constraint bypass of security constraints that apply to the pathInfo component of a URI mapped to the CGI servlet.\n\nThis issue affects Apache Tomcat: from 11.0.0-M1 through 11.0.6, from 10.1.0-M1 through 10.1.40, from 9.0.0.M1 through 9.0.104.\n\nUsers are recommended to upgrade to version 11.0.7, 10.1.41 or 9.0.105, which fixes the issue.",
+          "Severity": "LOW",
+          "CweIDs": [
+            "CWE-178"
+          ],
+          "VendorSeverity": {
+            "amazon": 2,
+            "bitnami": 3,
+            "ghsa": 1,
+            "photon": 3,
+            "redhat": 2,
+            "ubuntu": 2
+          },
+          "CVSS": {
+            "bitnami": {
+              "V3Vector": "CVSS:3.1/AV:N/AC:L/PR:N/UI:N/S:U/C:L/I:L/A:L",
+              "V3Score": 7.3
+            },
+            "redhat": {
+              "V3Vector": "CVSS:3.1/AV:N/AC:L/PR:N/UI:N/S:U/C:L/I:L/A:N",
+              "V3Score": 6.5
+            }
+          },
+          "References": [
+            "http://www.openwall.com/lists/oss-security/2025/05/29/4",
+            "https://access.redhat.com/security/cve/CVE-2025-46701",
+            "https://github.com/apache/tomcat",
+            "https://github.com/apache/tomcat/commit/0f01966eb60015d975525019e12a087f05ebf01a",
+            "https://github.com/apache/tomcat/commit/0f01966eb60015d975525019e12a087f05ebf01a (11.0.7)",
+            "https://github.com/apache/tomcat/commit/238d2aa54b99f91d1111467e2237d2244c64e558",
+            "https://github.com/apache/tomcat/commit/238d2aa54b99f91d1111467e2237d2244c64e558 (10.1.41)",
+            "https://github.com/apache/tomcat/commit/2c6800111e7d8d8d5403c07978ea9bff3db5a5a5",
+            "https://github.com/apache/tomcat/commit/2c6800111e7d8d8d5403c07978ea9bff3db5a5a5 (10.1.41)",
+            "https://github.com/apache/tomcat/commit/8cb95ff03221067c511b3fa66d4f745bc4b0a605",
+            "https://github.com/apache/tomcat/commit/8cb95ff03221067c511b3fa66d4f745bc4b0a605 (9.0.105)",
+            "https://github.com/apache/tomcat/commit/8df00018a252baa9497615d6420fb6c10466fa74",
+            "https://github.com/apache/tomcat/commit/8df00018a252baa9497615d6420fb6c10466fa74 (9.0.105)",
+            "https://github.com/apache/tomcat/commit/fab7247d2f0e3a29d5daef565f829f383e10e5e2",
+            "https://github.com/apache/tomcat/commit/fab7247d2f0e3a29d5daef565f829f383e10e5e2 (11.0.7)",
+            "https://lists.apache.org/thread/xhqqk9w5q45srcdqhogdk04lhdscv30j",
+            "https://nvd.nist.gov/vuln/detail/CVE-2025-46701",
+            "https://tomcat.apache.org/security-10.html#Fixed_in_Apache_Tomcat_10.1.41",
+            "https://tomcat.apache.org/security-11.html#Fixed_in_Apache_Tomcat_11.0.7",
+            "https://tomcat.apache.org/security-9.html#Fixed_in_Apache_Tomcat_9.0.105",
+            "https://www.cve.org/CVERecord?id=CVE-2025-46701"
+          ],
+          "PublishedDate": "2025-05-29T19:15:27.983Z",
+          "LastModifiedDate": "2025-05-30T16:31:03.107Z"
+        },
+        {
+          "VulnerabilityID": "CVE-2024-23672",
+          "PkgName": "org.apache.tomcat.embed:tomcat-embed-websocket",
+          "PkgPath": "app/app.jar/BOOT-INF/lib/tomcat-embed-websocket-10.1.16.jar",
+          "PkgIdentifier": {
+            "PURL": "pkg:maven/org.apache.tomcat.embed/tomcat-embed-websocket@10.1.16",
+            "UID": "319b239b24f461c"
+          },
+          "InstalledVersion": "10.1.16",
+          "FixedVersion": "11.0.0-M17, 10.1.19, 9.0.86, 8.5.99",
+          "Status": "fixed",
+          "Layer": {
+            "Digest": "sha256:a5769a9b415d3284f6e473ee3096dda36e66e871f347eb93b23160262c835f44",
+            "DiffID": "sha256:817b93f8b2201f0c845e4315bb834167d2a546c11b121bbcf7a5da2bd2628b4e"
+          },
+          "SeveritySource": "ghsa",
+          "PrimaryURL": "https://avd.aquasec.com/nvd/cve-2024-23672",
+          "DataSource": {
+            "ID": "ghsa",
+            "Name": "GitHub Security Advisory Maven",
+            "URL": "https://github.com/advisories?query=type%3Areviewed+ecosystem%3Amaven"
+          },
+          "Title": "Tomcat: WebSocket DoS with incomplete closing handshake",
+          "Description": "Denial of Service via incomplete cleanup vulnerability in Apache Tomcat. It was possible for WebSocket clients to keep WebSocket connections open leading to increased resource consumption.This issue affects Apache Tomcat: from 11.0.0-M1 through 11.0.0-M16, from 10.1.0-M1 through 10.1.18, from 9.0.0-M1 through 9.0.85, from 8.5.0 through 8.5.98.\n\nUsers are recommended to upgrade to version 11.0.0-M17, 10.1.19, 9.0.86 or 8.5.99 which fix the issue.",
+          "Severity": "MEDIUM",
+          "CweIDs": [
+            "CWE-459"
+          ],
+          "VendorSeverity": {
+            "alma": 3,
+            "amazon": 3,
+            "ghsa": 2,
+            "oracle-oval": 3,
+            "photon": 2,
+            "redhat": 3,
+            "rocky": 3,
+            "ubuntu": 2
+          },
+          "CVSS": {
+            "ghsa": {
+              "V3Vector": "CVSS:3.1/AV:N/AC:L/PR:L/UI:N/S:U/C:L/I:L/A:L",
+              "V3Score": 6.3
+            },
+            "redhat": {
+              "V3Vector": "CVSS:3.1/AV:N/AC:L/PR:N/UI:N/S:U/C:N/I:N/A:H",
+              "V3Score": 7.5
+            }
+          },
+          "References": [
+            "http://www.openwall.com/lists/oss-security/2024/03/13/4",
+            "https://access.redhat.com/errata/RHSA-2024:3666",
+            "https://access.redhat.com/security/cve/CVE-2024-23672",
+            "https://bugzilla.redhat.com/2269607",
+            "https://bugzilla.redhat.com/2269608",
+            "https://bugzilla.redhat.com/show_bug.cgi?id=2269607",
+            "https://bugzilla.redhat.com/show_bug.cgi?id=2269608",
+            "https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2024-23672",
+            "https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2024-24549",
+            "https://errata.almalinux.org/8/ALSA-2024-3666.html",
+            "https://errata.rockylinux.org/RLSA-2024:3307",
+            "https://github.com/apache/tomcat",
+            "https://github.com/apache/tomcat/commit/0052b374684b613b0c849899b325ebe334ac6501",
+            "https://github.com/apache/tomcat/commit/0052b374684b613b0c849899b325ebe334ac6501 (10.1.19)",
+            "https://github.com/apache/tomcat/commit/3631adb1342d8bbd8598802a12b63ad02c37d591",
+            "https://github.com/apache/tomcat/commit/52d6650e062d880704898d7d8c1b2b7a3efe8068",
+            "https://github.com/apache/tomcat/commit/52d6650e062d880704898d7d8c1b2b7a3efe8068 (9.0.86)",
+            "https://github.com/apache/tomcat/commit/b0e3b1bd78de270d53e319d7cb79eb282aa53cb9",
+            "https://linux.oracle.com/cve/CVE-2024-23672.html",
+            "https://linux.oracle.com/errata/ELSA-2024-3666.html",
+            "https://lists.apache.org/thread/cmpswfx6tj4s7x0nxxosvfqs11lvdx2f",
+            "https://lists.debian.org/debian-lts-announce/2024/04/msg00001.html",
+            "https://lists.fedoraproject.org/archives/list/package-announce@lists.fedoraproject.org/message/3UWIS5MMGYDZBLJYT674ZI5AWFHDZ46B",
+            "https://lists.fedoraproject.org/archives/list/package-announce@lists.fedoraproject.org/message/3UWIS5MMGYDZBLJYT674ZI5AWFHDZ46B/",
+            "https://lists.fedoraproject.org/archives/list/package-announce@lists.fedoraproject.org/message/736G4GPZWS2DSQO5WKXO3G6OMZKFEK55",
+            "https://lists.fedoraproject.org/archives/list/package-announce@lists.fedoraproject.org/message/736G4GPZWS2DSQO5WKXO3G6OMZKFEK55/",
+            "https://nvd.nist.gov/vuln/detail/CVE-2024-23672",
+            "https://security.netapp.com/advisory/ntap-20240402-0002",
+            "https://security.netapp.com/advisory/ntap-20240402-0002/",
+            "https://ubuntu.com/security/notices/USN-7106-1",
+            "https://ubuntu.com/security/notices/USN-7562-1",
+            "https://www.cve.org/CVERecord?id=CVE-2024-23672"
+          ],
+          "PublishedDate": "2024-03-13T16:15:29.287Z",
+          "LastModifiedDate": "2025-05-19T13:00:05.24Z"
+        },
+        {
+          "VulnerabilityID": "CVE-2025-22235",
+          "PkgName": "org.springframework.boot:spring-boot",
+          "PkgPath": "app/app.jar/BOOT-INF/lib/spring-boot-3.2.0.jar",
+          "PkgIdentifier": {
+            "PURL": "pkg:maven/org.springframework.boot/spring-boot@3.2.0",
+            "UID": "7f16a1922893969a"
+          },
+          "InstalledVersion": "3.2.0",
+          "FixedVersion": "3.3.11, 3.4.5",
+          "Status": "fixed",
+          "Layer": {
+            "Digest": "sha256:a5769a9b415d3284f6e473ee3096dda36e66e871f347eb93b23160262c835f44",
+            "DiffID": "sha256:817b93f8b2201f0c845e4315bb834167d2a546c11b121bbcf7a5da2bd2628b4e"
+          },
+          "SeveritySource": "ghsa",
+          "PrimaryURL": "https://avd.aquasec.com/nvd/cve-2025-22235",
+          "DataSource": {
+            "ID": "ghsa",
+            "Name": "GitHub Security Advisory Maven",
+            "URL": "https://github.com/advisories?query=type%3Areviewed+ecosystem%3Amaven"
+          },
+          "Title": "org.springframework.boot/spring-boot: Spring Boot EndpointRequest.to() creates wrong matcher if actuator endpoint is not exposed",
+          "Description": "EndpointRequest.to() creates a matcher for null/** if the actuator endpoint, for which the EndpointRequest has been created, is disabled or not exposed.\n\nYour application may be affected by this if all the following conditions are met:\n\n  *  You use Spring Security\n  *  EndpointRequest.to() has been used in a Spring Security chain configuration\n  *  The endpoint which EndpointRequest references is disabled or not exposed via web\n  *  Your application handles requests to /null and this path needs protection\n\n\nYou are not affected if any of the following is true:\n\n  *  You don't use Spring Security\n  *  You don't use EndpointRequest.to()\n  *  The endpoint which EndpointRequest.to() refers to is enabled and is exposed\n  *  Your application does not handle requests to /null or this path does not need protection",
+          "Severity": "HIGH",
+          "CweIDs": [
+            "CWE-20"
+          ],
+          "VendorSeverity": {
+            "ghsa": 3,
+            "redhat": 3
+          },
+          "CVSS": {
+            "ghsa": {
+              "V3Vector": "CVSS:3.1/AV:N/AC:L/PR:N/UI:N/S:U/C:L/I:L/A:L",
+              "V3Score": 7.3
+            },
+            "redhat": {
+              "V3Vector": "CVSS:3.1/AV:N/AC:L/PR:N/UI:N/S:U/C:L/I:L/A:L",
+              "V3Score": 7.3
+            }
+          },
+          "References": [
+            "https://access.redhat.com/security/cve/CVE-2025-22235",
+            "https://github.com/advisories/GHSA-rc42-6c7j-7h5r",
+            "https://github.com/spring-projects/spring-boot",
+            "https://nvd.nist.gov/vuln/detail/CVE-2025-22235",
+            "https://security.netapp.com/advisory/ntap-20250516-0010",
+            "https://security.netapp.com/advisory/ntap-20250516-0010/",
+            "https://spring.io/security/cve-2025-22235",
+            "https://www.cve.org/CVERecord?id=CVE-2025-22235"
+          ],
+          "PublishedDate": "2025-04-28T08:15:15.273Z",
+          "LastModifiedDate": "2025-05-16T23:15:19.6Z"
+        },
+        {
+          "VulnerabilityID": "CVE-2024-22234",
+          "PkgName": "org.springframework.security:spring-security-core",
+          "PkgPath": "app/app.jar/BOOT-INF/lib/spring-security-core-6.2.0.jar",
+          "PkgIdentifier": {
+            "PURL": "pkg:maven/org.springframework.security/spring-security-core@6.2.0",
+            "UID": "4c1f9b5d21a11ce9"
+          },
+          "InstalledVersion": "6.2.0",
+          "FixedVersion": "6.1.7, 6.2.2",
+          "Status": "fixed",
+          "Layer": {
+            "Digest": "sha256:a5769a9b415d3284f6e473ee3096dda36e66e871f347eb93b23160262c835f44",
+            "DiffID": "sha256:817b93f8b2201f0c845e4315bb834167d2a546c11b121bbcf7a5da2bd2628b4e"
+          },
+          "SeveritySource": "ghsa",
+          "PrimaryURL": "https://avd.aquasec.com/nvd/cve-2024-22234",
+          "DataSource": {
+            "ID": "ghsa",
+            "Name": "GitHub Security Advisory Maven",
+            "URL": "https://github.com/advisories?query=type%3Areviewed+ecosystem%3Amaven"
+          },
+          "Title": "spring-security: Broken Access Control in Spring Security With Direct Use of isFullyAuthenticated",
+          "Description": "In Spring Security, versions 6.1.x prior to 6.1.7 and versions 6.2.x prior to 6.2.2, an application is vulnerable to broken access control when it directly uses the AuthenticationTrustResolver.isFullyAuthenticated(Authentication) method.\n\nSpecifically, an application is vulnerable if:\n\n  *  The application uses AuthenticationTrustResolver.isFullyAuthenticated(Authentication) directly and a null authentication parameter is passed to it resulting in an erroneous true return value.\n\n\nAn application is not vulnerable if any of the following is true:\n\n  *  The application does not use AuthenticationTrustResolver.isFullyAuthenticated(Authentication) directly.\n  *  The application does not pass null to AuthenticationTrustResolver.isFullyAuthenticated\n  *  The application only uses isFullyAuthenticated via  Method Security https://docs.spring.io/spring-security/reference/servlet/authorization/method-security.html  or  HTTP Request Security https://docs.spring.io/spring-security/reference/servlet/authorization/authorize-http-requests.html",
+          "Severity": "HIGH",
+          "CweIDs": [
+            "CWE-284"
+          ],
+          "VendorSeverity": {
+            "ghsa": 3,
+            "nvd": 3,
+            "redhat": 2
+          },
+          "CVSS": {
+            "ghsa": {
+              "V3Vector": "CVSS:3.1/AV:N/AC:H/PR:N/UI:N/S:U/C:H/I:H/A:N",
+              "V3Score": 7.4
+            },
+            "nvd": {
+              "V3Vector": "CVSS:3.1/AV:N/AC:H/PR:N/UI:N/S:U/C:H/I:H/A:N",
+              "V3Score": 7.4
+            },
+            "redhat": {
+              "V3Vector": "CVSS:3.1/AV:N/AC:H/PR:N/UI:N/S:U/C:H/I:H/A:N",
+              "V3Score": 7.4
+            }
+          },
+          "References": [
+            "https://access.redhat.com/security/cve/CVE-2024-22234",
+            "https://github.com/spring-projects/spring-security",
+            "https://github.com/spring-projects/spring-security/commit/750cb30ce44d279c2f54c845d375e6a58bded569",
+            "https://nvd.nist.gov/vuln/detail/CVE-2024-22234",
+            "https://security.netapp.com/advisory/ntap-20240315-0003",
+            "https://security.netapp.com/advisory/ntap-20240315-0003/",
+            "https://spring.io/security/cve-2024-22234",
+            "https://www.cve.org/CVERecord?id=CVE-2024-22234"
+          ],
+          "PublishedDate": "2024-02-20T07:15:09.967Z",
+          "LastModifiedDate": "2025-04-02T20:10:31.627Z"
+        },
+        {
+          "VulnerabilityID": "CVE-2024-22257",
+          "PkgName": "org.springframework.security:spring-security-core",
+          "PkgPath": "app/app.jar/BOOT-INF/lib/spring-security-core-6.2.0.jar",
+          "PkgIdentifier": {
+            "PURL": "pkg:maven/org.springframework.security/spring-security-core@6.2.0",
+            "UID": "4c1f9b5d21a11ce9"
+          },
+          "InstalledVersion": "6.2.0",
+          "FixedVersion": "5.7.12, 5.8.11, 6.1.8, 6.2.3",
+          "Status": "fixed",
+          "Layer": {
+            "Digest": "sha256:a5769a9b415d3284f6e473ee3096dda36e66e871f347eb93b23160262c835f44",
+            "DiffID": "sha256:817b93f8b2201f0c845e4315bb834167d2a546c11b121bbcf7a5da2bd2628b4e"
+          },
+          "SeveritySource": "ghsa",
+          "PrimaryURL": "https://avd.aquasec.com/nvd/cve-2024-22257",
+          "DataSource": {
+            "ID": "ghsa",
+            "Name": "GitHub Security Advisory Maven",
+            "URL": "https://github.com/advisories?query=type%3Areviewed+ecosystem%3Amaven"
+          },
+          "Title": "spring-security: Broken Access Control With Direct Use of AuthenticatedVoter",
+          "Description": "In Spring Security, versions 5.7.x prior to 5.7.12, 5.8.x prior to \n5.8.11, versions 6.0.x prior to 6.0.9, versions 6.1.x prior to 6.1.8, \nversions 6.2.x prior to 6.2.3, an application is possible vulnerable to \nbroken access control when it directly uses the AuthenticatedVoter#vote passing a null Authentication parameter.",
+          "Severity": "HIGH",
+          "CweIDs": [
+            "CWE-862"
+          ],
+          "VendorSeverity": {
+            "ghsa": 3,
+            "redhat": 3
+          },
+          "CVSS": {
+            "ghsa": {
+              "V3Vector": "CVSS:3.1/AV:N/AC:L/PR:N/UI:N/S:U/C:H/I:L/A:N",
+              "V3Score": 8.2
+            },
+            "redhat": {
+              "V3Vector": "CVSS:3.1/AV:N/AC:L/PR:N/UI:N/S:U/C:H/I:H/A:H",
+              "V3Score": 9.8
+            }
+          },
+          "References": [
+            "https://access.redhat.com/security/cve/CVE-2024-22257",
+            "https://github.com/spring-projects/spring-security",
+            "https://github.com/spring-projects/spring-security/commit/5a7f12f1a9fdb4edaab6f61495f1d781a7273b61",
+            "https://nvd.nist.gov/vuln/detail/CVE-2024-22257",
+            "https://security.netapp.com/advisory/ntap-20240419-0005",
+            "https://security.netapp.com/advisory/ntap-20240419-0005/",
+            "https://spring.io/security/cve-2024-22257",
+            "https://www.cve.org/CVERecord?id=CVE-2024-22257"
+          ],
+          "PublishedDate": "2024-03-18T15:15:41.79Z",
+          "LastModifiedDate": "2025-02-13T18:16:47.687Z"
+        },
+        {
+          "VulnerabilityID": "CVE-2024-38827",
+          "PkgName": "org.springframework.security:spring-security-core",
+          "PkgPath": "app/app.jar/BOOT-INF/lib/spring-security-core-6.2.0.jar",
+          "PkgIdentifier": {
+            "PURL": "pkg:maven/org.springframework.security/spring-security-core@6.2.0",
+            "UID": "4c1f9b5d21a11ce9"
+          },
+          "InstalledVersion": "6.2.0",
+          "FixedVersion": "5.7.14, 5.8.16, 6.0.14, 6.1.12, 6.2.8, 6.3.5",
+          "Status": "fixed",
+          "Layer": {
+            "Digest": "sha256:a5769a9b415d3284f6e473ee3096dda36e66e871f347eb93b23160262c835f44",
+            "DiffID": "sha256:817b93f8b2201f0c845e4315bb834167d2a546c11b121bbcf7a5da2bd2628b4e"
+          },
+          "SeveritySource": "ghsa",
+          "PrimaryURL": "https://avd.aquasec.com/nvd/cve-2024-38827",
+          "DataSource": {
+            "ID": "ghsa",
+            "Name": "GitHub Security Advisory Maven",
+            "URL": "https://github.com/advisories?query=type%3Areviewed+ecosystem%3Amaven"
+          },
+          "Title": "spring-security: authorization bypass for case sensitive comparisons",
+          "Description": "The usage of String.toLowerCase() and String.toUpperCase() has some Locale dependent exceptions that could potentially result in authorization rules not working properly.",
+          "Severity": "MEDIUM",
+          "CweIDs": [
+            "CWE-639"
+          ],
+          "VendorSeverity": {
+            "ghsa": 2,
+            "redhat": 2
+          },
+          "CVSS": {
+            "ghsa": {
+              "V3Vector": "CVSS:3.1/AV:N/AC:H/PR:N/UI:N/S:U/C:L/I:L/A:N",
+              "V3Score": 4.8
+            },
+            "redhat": {
+              "V3Vector": "CVSS:3.1/AV:N/AC:H/PR:N/UI:N/S:U/C:L/I:L/A:N",
+              "V3Score": 4.8
+            }
+          },
+          "References": [
+            "https://access.redhat.com/security/cve/CVE-2024-38827",
+            "https://github.com/spring-projects/spring-framework/commit/11d4272ff48b4a4dabc4b28dfbff0364a4204bc9",
+            "https://github.com/spring-projects/spring-framework/issues/33708",
+            "https://github.com/spring-projects/spring-framework/issues/34232",
+            "https://github.com/spring-projects/spring-security",
+            "https://nvd.nist.gov/vuln/detail/CVE-2024-38827",
+            "https://security.netapp.com/advisory/ntap-20250124-0007",
+            "https://security.netapp.com/advisory/ntap-20250124-0007/",
+            "https://spring.io/security/cve-2024-38827",
+            "https://www.cve.org/CVERecord?id=CVE-2024-38827"
+          ],
+          "PublishedDate": "2024-12-02T15:15:11.27Z",
+          "LastModifiedDate": "2025-01-24T20:15:32.553Z"
+        },
+        {
+          "VulnerabilityID": "CVE-2025-22228",
+          "PkgName": "org.springframework.security:spring-security-crypto",
+          "PkgPath": "app/app.jar/BOOT-INF/lib/spring-security-crypto-6.2.0.jar",
+          "PkgIdentifier": {
+            "PURL": "pkg:maven/org.springframework.security/spring-security-crypto@6.2.0",
+            "UID": "bcf66a8ce04e9f0e"
+          },
+          "InstalledVersion": "6.2.0",
+          "FixedVersion": "6.3.8, 6.4.4, 6.2.10, 6.1.14, 6.0.16, 5.8.18, 5.7.16",
+          "Status": "fixed",
+          "Layer": {
+            "Digest": "sha256:a5769a9b415d3284f6e473ee3096dda36e66e871f347eb93b23160262c835f44",
+            "DiffID": "sha256:817b93f8b2201f0c845e4315bb834167d2a546c11b121bbcf7a5da2bd2628b4e"
+          },
+          "SeveritySource": "ghsa",
+          "PrimaryURL": "https://avd.aquasec.com/nvd/cve-2025-22228",
+          "DataSource": {
+            "ID": "ghsa",
+            "Name": "GitHub Security Advisory Maven",
+            "URL": "https://github.com/advisories?query=type%3Areviewed+ecosystem%3Amaven"
+          },
+          "Title": "spring-security-core: Spring Security BCryptPasswordEncoder does not enforce maximum password length",
+          "Description": "BCryptPasswordEncoder.matches(CharSequence,String) will incorrectly return true for passwords larger than 72 characters as long as the first 72 characters are the same.",
+          "Severity": "HIGH",
+          "CweIDs": [
+            "CWE-287"
+          ],
+          "VendorSeverity": {
+            "ghsa": 3,
+            "redhat": 3
+          },
+          "CVSS": {
+            "ghsa": {
+              "V3Vector": "CVSS:3.1/AV:N/AC:H/PR:N/UI:N/S:U/C:H/I:H/A:N",
+              "V3Score": 7.4
+            },
+            "redhat": {
+              "V3Vector": "CVSS:3.1/AV:N/AC:H/PR:N/UI:N/S:U/C:H/I:H/A:N",
+              "V3Score": 7.4
+            }
+          },
+          "References": [
+            "https://access.redhat.com/security/cve/CVE-2025-22228",
+            "https://github.com/spring-projects/spring-security",
+            "https://github.com/spring-projects/spring-security/commit/46f0dc6dfc8402cd556c598fdf2d31f9d46cdbf3",
+            "https://nvd.nist.gov/vuln/detail/CVE-2025-22228",
+            "https://security.netapp.com/advisory/ntap-20250425-0009",
+            "https://security.netapp.com/advisory/ntap-20250425-0009/",
+            "https://spring.io/security/cve-2025-22228",
+            "https://www.cve.org/CVERecord?id=CVE-2025-22228"
+          ],
+          "PublishedDate": "2025-03-20T06:15:23.087Z",
+          "LastModifiedDate": "2025-04-25T23:15:16.877Z"
+        },
+        {
+          "VulnerabilityID": "CVE-2024-38821",
+          "PkgName": "org.springframework.security:spring-security-web",
+          "PkgPath": "app/app.jar/BOOT-INF/lib/spring-security-web-6.2.0.jar",
+          "PkgIdentifier": {
+            "PURL": "pkg:maven/org.springframework.security/spring-security-web@6.2.0",
+            "UID": "14bc800c06e1d34a"
+          },
+          "InstalledVersion": "6.2.0",
+          "FixedVersion": "5.7.13, 5.8.15, 6.2.7, 6.0.13, 6.1.11, 6.3.4",
+          "Status": "fixed",
+          "Layer": {
+            "Digest": "sha256:a5769a9b415d3284f6e473ee3096dda36e66e871f347eb93b23160262c835f44",
+            "DiffID": "sha256:817b93f8b2201f0c845e4315bb834167d2a546c11b121bbcf7a5da2bd2628b4e"
+          },
+          "SeveritySource": "ghsa",
+          "PrimaryURL": "https://avd.aquasec.com/nvd/cve-2024-38821",
+          "DataSource": {
+            "ID": "ghsa",
+            "Name": "GitHub Security Advisory Maven",
+            "URL": "https://github.com/advisories?query=type%3Areviewed+ecosystem%3Amaven"
+          },
+          "Title": "Spring-WebFlux: Authorization Bypass of Static Resources in WebFlux Applications",
+          "Description": "Spring WebFlux applications that have Spring Security authorization rules on static resources can be bypassed under certain circumstances.\n\nFor this to impact an application, all of the following must be true:\n\n  *  It must be a WebFlux application\n  *  It must be using Spring's static resources support\n  *  It must have a non-permitAll authorization rule applied to the static resources support",
+          "Severity": "CRITICAL",
+          "CweIDs": [
+            "CWE-770"
+          ],
+          "VendorSeverity": {
+            "ghsa": 4,
+            "redhat": 2
+          },
+          "CVSS": {
+            "ghsa": {
+              "V3Vector": "CVSS:3.1/AV:N/AC:L/PR:N/UI:N/S:U/C:H/I:H/A:N",
+              "V3Score": 9.1
+            },
+            "redhat": {
+              "V3Vector": "CVSS:3.1/AV:N/AC:H/PR:N/UI:N/S:U/C:H/I:H/A:N",
+              "V3Score": 7.4
+            }
+          },
+          "References": [
+            "https://access.redhat.com/security/cve/CVE-2024-38821",
+            "https://github.com/spring-projects/spring-security",
+            "https://github.com/spring-projects/spring-security/commit/0e257b56ce35402558a260ffa6b368982f9a7934",
+            "https://github.com/spring-projects/spring-security/commit/4ce7cde15599c0447163fd46bac616e03318bf5b",
+            "https://nvd.nist.gov/vuln/detail/CVE-2024-38821",
+            "https://security.netapp.com/advisory/ntap-20250124-0006",
+            "https://security.netapp.com/advisory/ntap-20250124-0006/",
+            "https://spring.io/security/cve-2024-38821",
+            "https://www.cve.org/CVERecord?id=CVE-2024-38821"
+          ],
+          "PublishedDate": "2024-10-28T07:15:07.633Z",
+          "LastModifiedDate": "2025-01-24T20:15:32.427Z"
+        },
+        {
+          "VulnerabilityID": "CVE-2024-38820",
+          "PkgName": "org.springframework:spring-context",
+          "PkgPath": "app/app.jar/BOOT-INF/lib/spring-context-6.1.1.jar",
+          "PkgIdentifier": {
+            "PURL": "pkg:maven/org.springframework/spring-context@6.1.1",
+            "UID": "72bdb31cef8bc78a"
+          },
+          "InstalledVersion": "6.1.1",
+          "FixedVersion": "6.1.14",
+          "Status": "fixed",
+          "Layer": {
+            "Digest": "sha256:a5769a9b415d3284f6e473ee3096dda36e66e871f347eb93b23160262c835f44",
+            "DiffID": "sha256:817b93f8b2201f0c845e4315bb834167d2a546c11b121bbcf7a5da2bd2628b4e"
+          },
+          "SeveritySource": "ghsa",
+          "PrimaryURL": "https://avd.aquasec.com/nvd/cve-2024-38820",
+          "DataSource": {
+            "ID": "ghsa",
+            "Name": "GitHub Security Advisory Maven",
+            "URL": "https://github.com/advisories?query=type%3Areviewed+ecosystem%3Amaven"
+          },
+          "Title": "The fix for CVE-2022-22968 made disallowedFieldspatterns in DataBinder ...",
+          "Description": "The fix for CVE-2022-22968 made disallowedFields patterns in DataBinder case insensitive. However, String.toLowerCase() has some Locale dependent exceptions that could potentially result in fields not protected as expected.",
+          "Severity": "MEDIUM",
+          "CweIDs": [
+            "CWE-178"
+          ],
+          "VendorSeverity": {
+            "ghsa": 2,
+            "nvd": 2
+          },
+          "CVSS": {
+            "ghsa": {
+              "V3Vector": "CVSS:3.1/AV:N/AC:L/PR:N/UI:N/S:U/C:N/I:L/A:N",
+              "V3Score": 5.3
+            },
+            "nvd": {
+              "V3Vector": "CVSS:3.1/AV:N/AC:L/PR:N/UI:N/S:U/C:N/I:L/A:N",
+              "V3Score": 5.3
+            }
+          },
+          "References": [
+            "https://github.com/spring-projects/spring-framework",
+            "https://github.com/spring-projects/spring-framework/commit/23656aebc6c7d0f9faff1080981eb4d55eff296c",
+            "https://github.com/spring-projects/spring-framework/commits/v6.2.0-RC2",
+            "https://nvd.nist.gov/vuln/detail/CVE-2024-38820",
+            "https://security.netapp.com/advisory/ntap-20241129-0003",
+            "https://security.netapp.com/advisory/ntap-20241129-0003/",
+            "https://spring.io/security/cve-2024-38820"
+          ],
+          "PublishedDate": "2024-10-18T06:15:03.333Z",
+          "LastModifiedDate": "2024-11-29T12:15:07.007Z"
+        },
+        {
+          "VulnerabilityID": "CVE-2025-22233",
+          "PkgName": "org.springframework:spring-context",
+          "PkgPath": "app/app.jar/BOOT-INF/lib/spring-context-6.1.1.jar",
+          "PkgIdentifier": {
+            "PURL": "pkg:maven/org.springframework/spring-context@6.1.1",
+            "UID": "72bdb31cef8bc78a"
+          },
+          "InstalledVersion": "6.1.1",
+          "FixedVersion": "6.2.7, 6.1.20",
+          "Status": "fixed",
+          "Layer": {
+            "Digest": "sha256:a5769a9b415d3284f6e473ee3096dda36e66e871f347eb93b23160262c835f44",
+            "DiffID": "sha256:817b93f8b2201f0c845e4315bb834167d2a546c11b121bbcf7a5da2bd2628b4e"
+          },
+          "SeveritySource": "ghsa",
+          "PrimaryURL": "https://avd.aquasec.com/nvd/cve-2025-22233",
+          "DataSource": {
+            "ID": "ghsa",
+            "Name": "GitHub Security Advisory Maven",
+            "URL": "https://github.com/advisories?query=type%3Areviewed+ecosystem%3Amaven"
+          },
+          "Title": "CVE-2024-38820 ensured Locale-independent, lowercase conversion for bo ...",
+          "Description": "CVE-2024-38820 ensured Locale-independent, lowercase conversion for both the configured disallowedFields patterns and for request parameter names. However, there are still cases where it is possible to bypass the disallowedFields checks.\n\nAffected Spring Products and Versions\n\nSpring Framework:\n  *  6.2.0 - 6.2.6\n\n  *  6.1.0 - 6.1.19\n\n  *  6.0.0 - 6.0.27\n\n  *  5.3.0 - 5.3.42\n  *  Older, unsupported versions are also affected\n\n\n\nMitigation\n\nUsers of affected versions should upgrade to the corresponding fixed version.\n\nAffected version(s)Fix Version Availability 6.2.x\n 6.2.7\nOSS6.1.x\n 6.1.20\nOSS6.0.x\n 6.0.28\n Commercial https://enterprise.spring.io/ 5.3.x\n 5.3.43\n Commercial https://enterprise.spring.io/ \nNo further mitigation steps are necessary.\n\n\nGenerally, we recommend using a dedicated model object with properties only for data binding, or using constructor binding since constructor arguments explicitly declare what to bind together with turning off setter binding through the declarativeBinding flag. See the Model Design section in the reference documentation.\n\nFor setting binding, prefer the use of allowedFields (an explicit list) over disallowedFields.\n\nCredit\n\nThis issue was responsibly reported by the TERASOLUNA Framework Development Team from NTT DATA Group Corporation.",
+          "Severity": "LOW",
+          "CweIDs": [
+            "CWE-20"
+          ],
+          "VendorSeverity": {
+            "ghsa": 1
+          },
+          "CVSS": {
+            "ghsa": {
+              "V3Vector": "CVSS:3.1/AV:N/AC:H/PR:L/UI:N/S:U/C:N/I:L/A:N",
+              "V3Score": 3.1
+            }
+          },
+          "References": [
+            "https://github.com/spring-projects/spring-framework",
+            "https://github.com/spring-projects/spring-framework/commit/edfcc6ffb188e4614ec9b212e3208b666981851c",
+            "https://github.com/spring-projects/spring-framework/commit/ee62701f5634e904e42e218baad142cea2bcd332",
+            "https://github.com/spring-projects/spring-framework/issues/34801",
+            "https://nvd.nist.gov/vuln-metrics/cvss/v3-calculator?vector=AV:N/AC:H/PR:L/UI:N/S:U/C:N/I:L/A:N\u0026version=3.1",
+            "https://nvd.nist.gov/vuln/detail/CVE-2025-22233",
+            "https://spring.io/security/cve-2025-22233"
+          ],
+          "PublishedDate": "2025-05-16T20:15:22.143Z",
+          "LastModifiedDate": "2025-05-19T13:35:20.46Z"
+        },
+        {
+          "VulnerabilityID": "CVE-2024-22243",
+          "PkgName": "org.springframework:spring-web",
+          "PkgPath": "app/app.jar/BOOT-INF/lib/spring-web-6.1.1.jar",
+          "PkgIdentifier": {
+            "PURL": "pkg:maven/org.springframework/spring-web@6.1.1",
+            "UID": "2bb63712218292aa"
+          },
+          "InstalledVersion": "6.1.1",
+          "FixedVersion": "6.1.4, 6.0.17, 5.3.32",
+          "Status": "fixed",
+          "Layer": {
+            "Digest": "sha256:a5769a9b415d3284f6e473ee3096dda36e66e871f347eb93b23160262c835f44",
+            "DiffID": "sha256:817b93f8b2201f0c845e4315bb834167d2a546c11b121bbcf7a5da2bd2628b4e"
+          },
+          "SeveritySource": "ghsa",
+          "PrimaryURL": "https://avd.aquasec.com/nvd/cve-2024-22243",
+          "DataSource": {
+            "ID": "ghsa",
+            "Name": "GitHub Security Advisory Maven",
+            "URL": "https://github.com/advisories?query=type%3Areviewed+ecosystem%3Amaven"
+          },
+          "Title": "springframework: URL Parsing with Host Validation",
+          "Description": "Applications that use UriComponentsBuilder to parse an externally provided URL (e.g. through a query parameter) AND perform validation checks on the host of the parsed URL may be vulnerable to a  open redirect https://cwe.mitre.org/data/definitions/601.html  attack or to a SSRF attack if the URL is used after passing validation checks.",
+          "Severity": "HIGH",
+          "CweIDs": [
+            "CWE-601"
+          ],
+          "VendorSeverity": {
+            "ghsa": 3,
+            "redhat": 2
+          },
+          "CVSS": {
+            "ghsa": {
+              "V3Vector": "CVSS:3.1/AV:N/AC:L/PR:N/UI:R/S:U/C:H/I:H/A:N",
+              "V3Score": 8.1
+            },
+            "redhat": {
+              "V3Vector": "CVSS:3.1/AV:N/AC:H/PR:N/UI:R/S:C/C:N/I:L/A:N",
+              "V3Score": 3.4
+            }
+          },
+          "References": [
+            "http://seclists.org/fulldisclosure/2024/Sep/24",
+            "https://access.redhat.com/security/cve/CVE-2024-22243",
+            "https://github.com/spring-projects/spring-framework",
+            "https://github.com/spring-projects/spring-framework/blob/main/spring-web/src/main/java/org/springframework/web/util/UriComponentsBuilder.java",
+            "https://nvd.nist.gov/vuln/detail/CVE-2024-22243",
+            "https://security.netapp.com/advisory/ntap-20240524-0001",
+            "https://security.netapp.com/advisory/ntap-20240524-0001/",
+            "https://spring.io/security/cve-2024-22243",
+            "https://www.cve.org/CVERecord?id=CVE-2024-22243"
+          ],
+          "PublishedDate": "2024-02-23T05:15:08.143Z",
+          "LastModifiedDate": "2025-02-13T18:16:47.53Z"
+        },
+        {
+          "VulnerabilityID": "CVE-2024-22259",
+          "PkgName": "org.springframework:spring-web",
+          "PkgPath": "app/app.jar/BOOT-INF/lib/spring-web-6.1.1.jar",
+          "PkgIdentifier": {
+            "PURL": "pkg:maven/org.springframework/spring-web@6.1.1",
+            "UID": "2bb63712218292aa"
+          },
+          "InstalledVersion": "6.1.1",
+          "FixedVersion": "6.1.5, 6.0.18, 5.3.33",
+          "Status": "fixed",
+          "Layer": {
+            "Digest": "sha256:a5769a9b415d3284f6e473ee3096dda36e66e871f347eb93b23160262c835f44",
+            "DiffID": "sha256:817b93f8b2201f0c845e4315bb834167d2a546c11b121bbcf7a5da2bd2628b4e"
+          },
+          "SeveritySource": "ghsa",
+          "PrimaryURL": "https://avd.aquasec.com/nvd/cve-2024-22259",
+          "DataSource": {
+            "ID": "ghsa",
+            "Name": "GitHub Security Advisory Maven",
+            "URL": "https://github.com/advisories?query=type%3Areviewed+ecosystem%3Amaven"
+          },
+          "Title": "springframework: URL Parsing with Host Validation",
+          "Description": "Applications that use UriComponentsBuilder in Spring Framework to parse an externally provided URL (e.g. through a query parameter) AND perform validation checks on the host of the parsed URL may be vulnerable to a  open redirect https://cwe.mitre.org/data/definitions/601.html  attack or to a SSRF attack if the URL is used after passing validation checks.\n\nThis is the same as  CVE-2024-22243 https://spring.io/security/cve-2024-22243 , but with different input.",
+          "Severity": "HIGH",
+          "CweIDs": [
+            "CWE-601"
+          ],
+          "VendorSeverity": {
+            "ghsa": 3,
+            "redhat": 3
+          },
+          "CVSS": {
+            "ghsa": {
+              "V3Vector": "CVSS:3.1/AV:N/AC:L/PR:N/UI:R/S:U/C:H/I:H/A:N",
+              "V3Score": 8.1
+            },
+            "redhat": {
+              "V3Vector": "CVSS:3.1/AV:N/AC:L/PR:N/UI:R/S:U/C:H/I:H/A:N",
+              "V3Score": 8.1
+            }
+          },
+          "References": [
+            "https://access.redhat.com/security/cve/CVE-2024-22259",
+            "https://github.com/spring-projects/spring-framework",
+            "https://github.com/spring-projects/spring-framework/commit/297cbae2990e1413537c55845a7e0ea0ffd9f9bb",
+            "https://github.com/spring-projects/spring-framework/commit/381f790329a48b74c2a49fc1384dd68ca9153501",
+            "https://github.com/spring-projects/spring-framework/commit/f2fd2f12269c6a781c5b2c20b3c24141055a3d68",
+            "https://nvd.nist.gov/vuln/detail/CVE-2024-22259",
+            "https://security.netapp.com/advisory/ntap-20240524-0002",
+            "https://security.netapp.com/advisory/ntap-20240524-0002/",
+            "https://spring.io/security/cve-2024-22259",
+            "https://www.cve.org/CVERecord?id=CVE-2024-22259"
+          ],
+          "PublishedDate": "2024-03-16T05:15:20.83Z",
+          "LastModifiedDate": "2025-06-10T15:55:48.787Z"
+        },
+        {
+          "VulnerabilityID": "CVE-2024-22262",
+          "PkgName": "org.springframework:spring-web",
+          "PkgPath": "app/app.jar/BOOT-INF/lib/spring-web-6.1.1.jar",
+          "PkgIdentifier": {
+            "PURL": "pkg:maven/org.springframework/spring-web@6.1.1",
+            "UID": "2bb63712218292aa"
+          },
+          "InstalledVersion": "6.1.1",
+          "FixedVersion": "5.3.34, 6.0.19, 6.1.6",
+          "Status": "fixed",
+          "Layer": {
+            "Digest": "sha256:a5769a9b415d3284f6e473ee3096dda36e66e871f347eb93b23160262c835f44",
+            "DiffID": "sha256:817b93f8b2201f0c845e4315bb834167d2a546c11b121bbcf7a5da2bd2628b4e"
+          },
+          "SeveritySource": "ghsa",
+          "PrimaryURL": "https://avd.aquasec.com/nvd/cve-2024-22262",
+          "DataSource": {
+            "ID": "ghsa",
+            "Name": "GitHub Security Advisory Maven",
+            "URL": "https://github.com/advisories?query=type%3Areviewed+ecosystem%3Amaven"
+          },
+          "Title": "springframework: URL Parsing with Host Validation",
+          "Description": "Applications that use UriComponentsBuilder to parse an externally provided URL (e.g. through a query parameter) AND perform validation checks on the host of the parsed URL may be vulnerable to a  open redirect https://cwe.mitre.org/data/definitions/601.html  attack or to a SSRF attack if the URL is used after passing validation checks.\n\nThis is the same as  CVE-2024-22259 https://spring.io/security/cve-2024-22259  and  CVE-2024-22243 https://spring.io/security/cve-2024-22243 , but with different input.",
+          "Severity": "HIGH",
+          "CweIDs": [
+            "CWE-601",
+            "CWE-918"
+          ],
+          "VendorSeverity": {
+            "ghsa": 3,
+            "redhat": 3
+          },
+          "CVSS": {
+            "ghsa": {
+              "V3Vector": "CVSS:3.1/AV:N/AC:L/PR:N/UI:R/S:U/C:H/I:H/A:N",
+              "V3Score": 8.1
+            },
+            "redhat": {
+              "V3Vector": "CVSS:3.1/AV:N/AC:L/PR:N/UI:R/S:U/C:H/I:H/A:N",
+              "V3Score": 8.1
+            }
+          },
+          "References": [
+            "https://access.redhat.com/security/cve/CVE-2024-22262",
+            "https://github.com/spring-projects/spring-framework",
+            "https://github.com/spring-projects/spring-framework/blob/main/spring-web/src/main/java/org/springframework/web/util/UriComponentsBuilder.java",
+            "https://nvd.nist.gov/vuln/detail/CVE-2024-22262",
+            "https://security.netapp.com/advisory/ntap-20240524-0003",
+            "https://security.netapp.com/advisory/ntap-20240524-0003/",
+            "https://spring.io/security/cve-2024-22262",
+            "https://www.cve.org/CVERecord?id=CVE-2024-22262"
+          ],
+          "PublishedDate": "2024-04-16T06:15:46.27Z",
+          "LastModifiedDate": "2025-02-13T18:16:47.98Z"
+        },
+        {
+          "VulnerabilityID": "CVE-2024-38809",
+          "PkgName": "org.springframework:spring-web",
+          "PkgPath": "app/app.jar/BOOT-INF/lib/spring-web-6.1.1.jar",
+          "PkgIdentifier": {
+            "PURL": "pkg:maven/org.springframework/spring-web@6.1.1",
+            "UID": "2bb63712218292aa"
+          },
+          "InstalledVersion": "6.1.1",
+          "FixedVersion": "5.3.38, 6.0.23, 6.1.12",
+          "Status": "fixed",
+          "Layer": {
+            "Digest": "sha256:a5769a9b415d3284f6e473ee3096dda36e66e871f347eb93b23160262c835f44",
+            "DiffID": "sha256:817b93f8b2201f0c845e4315bb834167d2a546c11b121bbcf7a5da2bd2628b4e"
+          },
+          "SeveritySource": "ghsa",
+          "PrimaryURL": "https://avd.aquasec.com/nvd/cve-2024-38809",
+          "DataSource": {
+            "ID": "ghsa",
+            "Name": "GitHub Security Advisory Maven",
+            "URL": "https://github.com/advisories?query=type%3Areviewed+ecosystem%3Amaven"
+          },
+          "Title": "org.springframework:spring-web: Spring Framework DoS via conditional HTTP request",
+          "Description": "Applications that parse ETags from \"If-Match\" or \"If-None-Match\" request headers are vulnerable to DoS attack.\n\nUsers of affected versions should upgrade to the corresponding fixed version.\n\nUsers of older, unsupported versions could enforce a size limit on \"If-Match\" and \"If-None-Match\" headers, e.g. through a Filter.",
+          "Severity": "MEDIUM",
+          "CweIDs": [
+            "CWE-400"
+          ],
+          "VendorSeverity": {
+            "ghsa": 2,
+            "redhat": 2
+          },
+          "CVSS": {
+            "ghsa": {
+              "V3Vector": "CVSS:3.1/AV:N/AC:L/PR:N/UI:N/S:U/C:N/I:N/A:L",
+              "V3Score": 5.3
+            },
+            "redhat": {
+              "V3Vector": "CVSS:3.1/AV:N/AC:L/PR:N/UI:N/S:U/C:N/I:N/A:L",
+              "V3Score": 5.3
+            }
+          },
+          "References": [
+            "http://github.com/spring-projects/spring-framework",
+            "https://access.redhat.com/security/cve/CVE-2024-38809",
+            "https://github.com/spring-projects/spring-framework",
+            "https://github.com/spring-projects/spring-framework/commit/582bfccbb72e5c8959a0b472d1dc7d03a20520f3",
+            "https://github.com/spring-projects/spring-framework/commit/8d16a50907c11f7e6b407d878a26e84eba08a533",
+            "https://github.com/spring-projects/spring-framework/commit/bb17ad8314b81850a939fd265fb53b3361705e85",
+            "https://github.com/spring-projects/spring-framework/issues/33372",
+            "https://nvd.nist.gov/vuln/detail/CVE-2024-38809",
+            "https://security.netapp.com/advisory/ntap-20240920-0003/",
+            "https://spring.io/security/cve-2024-38809",
+            "https://www.cve.org/CVERecord?id=CVE-2024-38809"
+          ],
+          "PublishedDate": "2024-09-27T17:15:12.393Z",
+          "LastModifiedDate": "2024-11-21T09:26:51.01Z"
+        },
+        {
+          "VulnerabilityID": "CVE-2024-38820",
+          "PkgName": "org.springframework:spring-web",
+          "PkgPath": "app/app.jar/BOOT-INF/lib/spring-web-6.1.1.jar",
+          "PkgIdentifier": {
+            "PURL": "pkg:maven/org.springframework/spring-web@6.1.1",
+            "UID": "2bb63712218292aa"
+          },
+          "InstalledVersion": "6.1.1",
+          "FixedVersion": "6.1.14",
+          "Status": "fixed",
+          "Layer": {
+            "Digest": "sha256:a5769a9b415d3284f6e473ee3096dda36e66e871f347eb93b23160262c835f44",
+            "DiffID": "sha256:817b93f8b2201f0c845e4315bb834167d2a546c11b121bbcf7a5da2bd2628b4e"
+          },
+          "SeveritySource": "ghsa",
+          "PrimaryURL": "https://avd.aquasec.com/nvd/cve-2024-38820",
+          "DataSource": {
+            "ID": "ghsa",
+            "Name": "GitHub Security Advisory Maven",
+            "URL": "https://github.com/advisories?query=type%3Areviewed+ecosystem%3Amaven"
+          },
+          "Title": "The fix for CVE-2022-22968 made disallowedFieldspatterns in DataBinder ...",
+          "Description": "The fix for CVE-2022-22968 made disallowedFields patterns in DataBinder case insensitive. However, String.toLowerCase() has some Locale dependent exceptions that could potentially result in fields not protected as expected.",
+          "Severity": "MEDIUM",
+          "CweIDs": [
+            "CWE-178"
+          ],
+          "VendorSeverity": {
+            "ghsa": 2,
+            "nvd": 2
+          },
+          "CVSS": {
+            "ghsa": {
+              "V3Vector": "CVSS:3.1/AV:N/AC:L/PR:N/UI:N/S:U/C:N/I:L/A:N",
+              "V3Score": 5.3
+            },
+            "nvd": {
+              "V3Vector": "CVSS:3.1/AV:N/AC:L/PR:N/UI:N/S:U/C:N/I:L/A:N",
+              "V3Score": 5.3
+            }
+          },
+          "References": [
+            "https://github.com/spring-projects/spring-framework",
+            "https://github.com/spring-projects/spring-framework/commit/23656aebc6c7d0f9faff1080981eb4d55eff296c",
+            "https://github.com/spring-projects/spring-framework/commits/v6.2.0-RC2",
+            "https://nvd.nist.gov/vuln/detail/CVE-2024-38820",
+            "https://security.netapp.com/advisory/ntap-20241129-0003",
+            "https://security.netapp.com/advisory/ntap-20241129-0003/",
+            "https://spring.io/security/cve-2024-38820"
+          ],
+          "PublishedDate": "2024-10-18T06:15:03.333Z",
+          "LastModifiedDate": "2024-11-29T12:15:07.007Z"
+        },
+        {
+          "VulnerabilityID": "CVE-2025-41234",
+          "PkgName": "org.springframework:spring-web",
+          "PkgPath": "app/app.jar/BOOT-INF/lib/spring-web-6.1.1.jar",
+          "PkgIdentifier": {
+            "PURL": "pkg:maven/org.springframework/spring-web@6.1.1",
+            "UID": "2bb63712218292aa"
+          },
+          "InstalledVersion": "6.1.1",
+          "FixedVersion": "6.2.8, 6.1.21",
+          "Status": "fixed",
+          "Layer": {
+            "Digest": "sha256:a5769a9b415d3284f6e473ee3096dda36e66e871f347eb93b23160262c835f44",
+            "DiffID": "sha256:817b93f8b2201f0c845e4315bb834167d2a546c11b121bbcf7a5da2bd2628b4e"
+          },
+          "SeveritySource": "ghsa",
+          "PrimaryURL": "https://avd.aquasec.com/nvd/cve-2025-41234",
+          "DataSource": {
+            "ID": "ghsa",
+            "Name": "GitHub Security Advisory Maven",
+            "URL": "https://github.com/advisories?query=type%3Areviewed+ecosystem%3Amaven"
+          },
+          "Title": "springframework: Reflected download attack in Spring Framework with non-ASCII headers",
+          "Description": "Description\n\nIn Spring Framework, versions 6.0.x as of 6.0.5, versions 6.1.x and 6.2.x, an application is vulnerable to a reflected file download (RFD) attack when it sets a “Content-Disposition” header with a non-ASCII charset, where the filename attribute is derived from user-supplied input.\n\nSpecifically, an application is vulnerable when all the following are true:\n\n  *  The header is prepared with org.springframework.http.ContentDisposition.\n  *  The filename is set via ContentDisposition.Builder#filename(String, Charset).\n  *  The value for the filename is derived from user-supplied input.\n  *  The application does not sanitize the user-supplied input.\n  *  The downloaded content of the response is injected with malicious commands by the attacker (see RFD paper reference for details).\n\n\nAn application is not vulnerable if any of the following is true:\n\n  *  The application does not set a “Content-Disposition” response header.\n  *  The header is not prepared with org.springframework.http.ContentDisposition.\n  *  The filename is set via one of:  *  ContentDisposition.Builder#filename(String), or\n  *  ContentDisposition.Builder#filename(String, ASCII)\n\n\n\n  *  The filename is not derived from user-supplied input.\n  *  The filename is derived from user-supplied input but sanitized by the application.\n  *  The attacker cannot inject malicious content in the downloaded content of the response.\n\n\nAffected Spring Products and VersionsSpring Framework:\n\n  *  6.2.0 - 6.2.7\n  *  6.1.0 - 6.1.20\n  *  6.0.5 - 6.0.28\n  *  Older, unsupported versions are not affected\n\n\nMitigationUsers of affected versions should upgrade to the corresponding fixed version.\n\nAffected version(s)Fix versionAvailability6.2.x6.2.8OSS6.1.x6.1.21OSS6.0.x6.0.29 Commercial https://enterprise.spring.io/ No further mitigation steps are necessary.\n\n\nCWE-113 in `Content-Disposition` handling in VMware Spring Framework versions 6.0.5 to 6.2.7 allows remote attackers to launch Reflected File Download (RFD) attacks via unsanitized user input in `ContentDisposition.Builder#filename(String, Charset)` with non-ASCII charsets.",
+          "Severity": "MEDIUM",
+          "CweIDs": [
+            "CWE-113"
+          ],
+          "VendorSeverity": {
+            "ghsa": 2,
+            "redhat": 2
+          },
+          "CVSS": {
+            "ghsa": {
+              "V3Vector": "CVSS:3.1/AV:N/AC:H/PR:L/UI:R/S:C/C:H/I:L/A:N",
+              "V3Score": 6.5
+            },
+            "redhat": {
+              "V3Vector": "CVSS:3.1/AV:N/AC:H/PR:L/UI:R/S:C/C:H/I:L/A:N",
+              "V3Score": 6.5
+            }
+          },
+          "References": [
+            "https://access.redhat.com/security/cve/CVE-2025-41234",
+            "https://github.com/spring-projects/spring-framework",
+            "https://github.com/spring-projects/spring-framework/commit/f0e7b42704e6b33958f242d91bd690d6ef7ada9c",
+            "https://github.com/spring-projects/spring-framework/commit/fd68ea6fcbf94fc1d38bfefd3692fe094652ab3d",
+            "https://github.com/spring-projects/spring-framework/issues/35034",
+            "https://nvd.nist.gov/vuln-metrics/cvss/v3-calculator?vector=AV:N/AC:H/PR:L/UI:R/S:C/C:H/I:L/A:N\u0026version=3.1",
+            "https://nvd.nist.gov/vuln/detail/CVE-2025-41234",
+            "https://spring.io/security/cve-2025-41234",
+            "https://www.cve.org/CVERecord?id=CVE-2025-41234"
+          ],
+          "PublishedDate": "2025-06-12T22:15:21.09Z",
+          "LastModifiedDate": "2025-06-16T12:32:18.84Z"
+        },
+        {
+          "VulnerabilityID": "CVE-2024-38816",
+          "PkgName": "org.springframework:spring-webmvc",
+          "PkgPath": "app/app.jar/BOOT-INF/lib/spring-webmvc-6.1.1.jar",
+          "PkgIdentifier": {
+            "PURL": "pkg:maven/org.springframework/spring-webmvc@6.1.1",
+            "UID": "6178121be7d5dfb8"
+          },
+          "InstalledVersion": "6.1.1",
+          "FixedVersion": "6.1.13",
+          "Status": "fixed",
+          "Layer": {
+            "Digest": "sha256:a5769a9b415d3284f6e473ee3096dda36e66e871f347eb93b23160262c835f44",
+            "DiffID": "sha256:817b93f8b2201f0c845e4315bb834167d2a546c11b121bbcf7a5da2bd2628b4e"
+          },
+          "SeveritySource": "ghsa",
+          "PrimaryURL": "https://avd.aquasec.com/nvd/cve-2024-38816",
+          "DataSource": {
+            "ID": "ghsa",
+            "Name": "GitHub Security Advisory Maven",
+            "URL": "https://github.com/advisories?query=type%3Areviewed+ecosystem%3Amaven"
+          },
+          "Title": "spring-webmvc: Path Traversal Vulnerability in Spring Applications Using RouterFunctions and FileSystemResource",
+          "Description": "Applications serving static resources through the functional web frameworks WebMvc.fn or WebFlux.fn are vulnerable to path traversal attacks. An attacker can craft malicious HTTP requests and obtain any file on the file system that is also accessible to the process in which the Spring application is running.\n\nSpecifically, an application is vulnerable when both of the following are true:\n\n  *  the web application uses RouterFunctions to serve static resources\n  *  resource handling is explicitly configured with a FileSystemResource location\n\n\nHowever, malicious requests are blocked and rejected when any of the following is true:\n\n  *  the  Spring Security HTTP Firewall https://docs.spring.io/spring-security/reference/servlet/exploits/firewall.html  is in use\n  *  the application runs on Tomcat or Jetty",
+          "Severity": "HIGH",
+          "CweIDs": [
+            "CWE-22"
+          ],
+          "VendorSeverity": {
+            "ghsa": 3,
+            "redhat": 3
+          },
+          "CVSS": {
+            "ghsa": {
+              "V3Vector": "CVSS:3.1/AV:N/AC:L/PR:N/UI:N/S:U/C:H/I:N/A:N",
+              "V3Score": 7.5
+            },
+            "redhat": {
+              "V3Vector": "CVSS:3.1/AV:N/AC:L/PR:N/UI:N/S:U/C:H/I:N/A:N",
+              "V3Score": 7.5
+            }
+          },
+          "References": [
+            "https://access.redhat.com/security/cve/CVE-2024-38816",
+            "https://github.com/spring-projects/spring-framework",
+            "https://github.com/spring-projects/spring-framework/commit/d86bf8b2056429edf5494456cffcb2b243331c49",
+            "https://nvd.nist.gov/vuln/detail/CVE-2024-38816",
+            "https://security.netapp.com/advisory/ntap-20241227-0001",
+            "https://security.netapp.com/advisory/ntap-20241227-0001/",
+            "https://spring.io/security/cve-2024-38816",
+            "https://www.cve.org/CVERecord?id=CVE-2024-38816"
+          ],
+          "PublishedDate": "2024-09-13T06:15:11.19Z",
+          "LastModifiedDate": "2025-03-18T15:15:52.397Z"
+        },
+        {
+          "VulnerabilityID": "CVE-2024-38819",
+          "PkgName": "org.springframework:spring-webmvc",
+          "PkgPath": "app/app.jar/BOOT-INF/lib/spring-webmvc-6.1.1.jar",
+          "PkgIdentifier": {
+            "PURL": "pkg:maven/org.springframework/spring-webmvc@6.1.1",
+            "UID": "6178121be7d5dfb8"
+          },
+          "InstalledVersion": "6.1.1",
+          "FixedVersion": "6.1.14",
+          "Status": "fixed",
+          "Layer": {
+            "Digest": "sha256:a5769a9b415d3284f6e473ee3096dda36e66e871f347eb93b23160262c835f44",
+            "DiffID": "sha256:817b93f8b2201f0c845e4315bb834167d2a546c11b121bbcf7a5da2bd2628b4e"
+          },
+          "SeveritySource": "ghsa",
+          "PrimaryURL": "https://avd.aquasec.com/nvd/cve-2024-38819",
+          "DataSource": {
+            "ID": "ghsa",
+            "Name": "GitHub Security Advisory Maven",
+            "URL": "https://github.com/advisories?query=type%3Areviewed+ecosystem%3Amaven"
+          },
+          "Title": "org.springframework:spring-webmvc: Path traversal vulnerability in functional web frameworks",
+          "Description": "Applications serving static resources through the functional web frameworks WebMvc.fn or WebFlux.fn are vulnerable to path traversal attacks. An attacker can craft malicious HTTP requests and obtain any file on the file system that is also accessible to the process in which the Spring application is running.",
+          "Severity": "HIGH",
+          "CweIDs": [
+            "CWE-22"
+          ],
+          "VendorSeverity": {
+            "ghsa": 3,
+            "redhat": 3
+          },
+          "CVSS": {
+            "ghsa": {
+              "V3Vector": "CVSS:3.1/AV:N/AC:L/PR:N/UI:N/S:U/C:H/I:N/A:N",
+              "V3Score": 7.5
+            },
+            "redhat": {
+              "V3Vector": "CVSS:3.1/AV:N/AC:L/PR:N/UI:N/S:U/C:H/I:N/A:N",
+              "V3Score": 7.5
+            }
+          },
+          "References": [
+            "https://access.redhat.com/security/cve/CVE-2024-38819",
+            "https://github.com/spring-projects/spring-framework",
+            "https://github.com/spring-projects/spring-framework/commit/3bfbe30a7814c9ea1556d40df9bd87ddb3ba372d",
+            "https://github.com/spring-projects/spring-framework/commit/fb7890d73975a3d9e0763e0926df2bd0a608e87e",
+            "https://github.com/spring-projects/spring-framework/issues/33689",
+            "https://nvd.nist.gov/vuln/detail/CVE-2024-38819",
+            "https://security.netapp.com/advisory/ntap-20250110-0010",
+            "https://security.netapp.com/advisory/ntap-20250110-0010/",
+            "https://spring.io/security/cve-2024-38819",
+            "https://www.cve.org/CVERecord?id=CVE-2024-38819"
+          ],
+          "PublishedDate": "2024-12-19T18:15:10.557Z",
+          "LastModifiedDate": "2025-01-10T13:15:09.287Z"
+        }
+      ]
+    }
+  ]
+}
