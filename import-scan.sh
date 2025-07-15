@@ -29,6 +29,7 @@ import_scan_to_defectdojo() {
     -F "product_name=$PRODUCT_NAME" \
     -F "engagement_name=$ENGAGEMENT_NAME" \
     -F "service=$SERVICE" \
+    -F "tags=$SERVICE" \
     -F "file=@$SCAN_FILE" \
     -F "close_old_findings=false" \
     -F "push_to_jira=false"
