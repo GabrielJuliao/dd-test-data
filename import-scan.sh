@@ -16,9 +16,17 @@ import_scan_to_defectdojo() {
     return 1
   fi
 
-  # Send POST request to import scan
+   # Determine endpoint based on isFirstImport
+  local endpoint
+  if [ "$IS_FIRST_IMPORT" = "true" ]; then
+    endpoint="$DEFECTDOJO_URL/api/v2/import-scan/"
+  else
+    endpoint="$DEFECTDOJO_URL/api/v2/reimport-scan/"
+  fi
+
+  # Send POST request to import or reimport scan
   curl -s --fail \
-    -X POST "$DEFECTDOJO_URL/api/v2/import-scan/" \ # IMPORTANT: CHANGE TO 'reimport' ENDPOINT AFTER THE FIRST IMPORT
+    -X POST "$endpoint" \
     -H "Authorization: Token $API_TOKEN" \
     -H "Content-Type: multipart/form-data" \
     -F "scan_date=$(date +%Y-%m-%d)" \
@@ -49,6 +57,7 @@ API_TOKEN=""                       # Replace with your API token
 PRODUCT_NAME="My Product"                     # Replace with your product name
 ENGAGEMENT_NAME="My Product CI/CD Engagement"               # Replace with your engagement name
 SCAN_FOLDER="va-scans"                               # Folder with scan files
+IS_FIRST_IMPORT="true"                              # Set to "true" for import-scan, "false" for reimport-scan
 
 # Check if folder exists
 if [ ! -d "$SCAN_FOLDER" ]; then
