@@ -1,0 +1,84 @@
+{
+  "artifacts": [
+    {
+      "general": {
+        "name": "va-cicd/svc-a:1.0.0-1",
+        "component_id": "va-cicd/svc-a:1.0.0-1",
+        "pkg_type": "Docker",
+        "path": "JFROG-CENTRAL/va-cicd-docker-global/va-cicd/svc-a/1.0.0-1/",
+        "sha256": "fea0441dc2c242869db8abfdf8b0f60ecfa37d74fc3cfb8c1663a8b93b1b2706"
+      },
+      "issues": [
+        {
+          "issue_id": "XRAY-123456",
+          "summary": "An out-of-bounds heap read in Busybox's unlzma applet leads to information leak and denial of service when crafted LZMA-compressed input is decompressed. This can be triggered by any applet/format that",
+          "description": "An out-of-bounds heap read in Busybox's unlzma applet leads to information leak and denial of service when crafted LZMA-compressed input is decompressed. This can be triggered by any applet/format that",
+          "issue_type": "security",
+          "severity": "Medium",
+          "provider": "JFrog",
+          "cves": [
+            {
+              "cve": "CVE-2021-42374",
+              "cwe": ["CWE-125"],
+              "cvss_v2": "3.3/CVSS:2.0/AV:L/AC:M/Au:N/C:P/I:N/A:P",
+              "cvss_v3": "5.3/CVSS:3.1/AV:L/AC:H/PR:L/UI:N/S:U/C:L/I:N/A:H"
+            }
+          ],
+          "created": "2021-11-18T00:00:00.781Z",
+          "impact_path": [
+            "JFROG-CENTRAL/va-cicd-docker-global/va-cicd/svc-a/1.0.0-1/sha256__5374a6c95e17d7f9610d9ce908d69f2556a8c29f81985318519cd21c47f803fd.tar.gz/3.10:busybox:1.30.1-r5",
+            "JFROG-CENTRAL/va-cicd-docker-global/va-cicd/svc-a/1.0.0-1/sha256__5374a6c95e17d7f9610d9ce908d69f2556a8c29f81985318519cd21c47f803fd.tar.gz/3.10:ssl_client:1.30.1-r5"
+          ],
+          "extended_information": {
+            "short_description": "A OOB heap read in Busybox lzma leads to data leakage and denial of service when decompressing a malformed LZMA-based archive.",
+            "full_description": "The [BusyBox](https://busybox.net/) toolkit implements a large number of Linux tools in a single executable and can even replace the Linux init system. Its small size and flexibility make it popular in embedded devices.\n\nAn out-of-bounds heap read in `unlzma` leads to information leak and denial of service when crafted LZMA-compressed input is decompressed. This can be triggered by any applet/format that internally supports LZMA compression.\nAn attacker that can pass an LZMA-based archive to be decompressed, can cause data leakage and denial of service.\nNote that the following applets all accept and decompress an LZMA-based archive:\n`unlzma`, `tar`, `unzip`, `rpm`, `dpkg`, `man`\n\nAs shown in the [JFrog blogpost](https://jfrog.com/blog/unboxing-busybox-14-new-vulnerabilities-uncovered-by-claroty-and-jfrog/), the attack is most potent when the victim unzips a crafted zip archive, since there are no special requirements on the unzipped filename and the leaked data can be archived back into the original zip archive.",
+            "jfrog_research_severity": "High",
+            "jfrog_research_severity_reasons": [
+              {
+                "name": "The issue has a detailed technical explanation published, that can aid in exploit development",
+                "is_positive": false
+              },
+              {
+                "name": "Exploitation of the issue is only possible when the vulnerable component is used in a specific manner. The attacker has to perform per-target research to determine the vulnerable attack vector",
+                "description": "The attacker would need to determine which external input propagates into the applet's command line arguments",
+                "is_positive": true
+              }
+            ],
+            "remediation": "##### Development mitigations\n\nComment out `CONFIG_UNLZMA=y`, `CONFIG_FEATURE_SEAMLESS_LZMA=y` and `CONFIG_FEATURE_UNZIP_LZMA=y` in Busybox's `.config` file and recompile"
+          },
+          "applicability": null,
+          "applicability_details": null
+        }
+      ],
+      "licenses": [
+        {
+          "name": "ISC",
+          "full_name": "ISC License",
+          "more_info_url": [
+            "https://www.isc.org/licenses/",
+            "https://opensource.org/licenses/ISC",
+            "https://www.isc.org/downloads/software-support-policy/isc-license/",
+            "https://spdx.org/licenses/ISC",
+            "http://www.opensource.org/licenses/ISC"
+          ],
+          "components": ["alpine://3.10:libtls-standalone:2.9.1-r0"]
+        }
+      ],
+      "operational_risks": [
+        {
+          "component_id": "gav://org.springframework.security:spring-security-web:6.4.7",
+          "risk": "None",
+          "risk_reason": "None",
+          "is_eol": null,
+          "eol_message": "",
+          "latest_version": "7.0.0-M2",
+          "newer_versions": 1,
+          "cadence": 10,
+          "commits": null,
+          "committers": null,
+          "released": "2025-06-16T20:32:00+02:00"
+        }
+      ]
+    }
+  ]
+}
